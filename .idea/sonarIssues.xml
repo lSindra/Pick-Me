@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="issues">
+    <option name="index">
+      <map>
+        <entry key="/Dummy.txt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day3-rest-complete/WebContent/WEB-INF/datasource-config.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/WebContent/WEB-INF/applicationContext.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/WebContent/WEB-INF/datasource-config.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/WebContent/WEB-INF/training-servlet.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/WebContent/WEB-INF/web.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/pom.xml">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/src/main/java/com.sap.training/controllers/BookingsRestController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/src/main/java/com/sap/training/controllers/TrainingController.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/src/main/java/com/sap/training/daos/TrainingDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/src/main/java/com/sap/training/daos/impls/DefaultRoomDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/src/main/java/com/sap/training/daos/impls/HibernateTrainingDao.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/src/main/java/com/sap/training/services/TrainingService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/src/main/java/com/sap/training/services/impl/DefaultTrainingService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/javaspringtraining-day4-initial/src/main/java/com/sap/training/services/impls/DefaultTrainingService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
