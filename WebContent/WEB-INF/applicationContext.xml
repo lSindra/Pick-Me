@@ -16,4 +16,5 @@
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
+    <alias name="defaultRestaurantDao" alias="restaurantDao"/>
 </beans>

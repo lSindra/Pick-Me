@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
 
+
 import java.util.List;
 
 
@@ -43,7 +44,7 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
         return getRestaurantByName(restaurantName).isAlelo();
     }
 
-
+    @Transactional
     @Override
     public void addRestaurant(Restaurant restaurant) {
         getHibernateTemplate().save(restaurant);

@@ -1,6 +1,7 @@
 package com.sap.pickme.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 
 @Entity
@@ -12,17 +13,22 @@ public class Restaurant {
     @Column(name = "ID")
     private int id;
 
+    @NotNull
     @Column(name = "NAME")
     private String name;
+
+    @Column(name = "PRICE")
+    private double price;
 
     @Column(name = "ALELO")
     private boolean alelo;
 
-    @Column(name = "location")
+    @Column(name = "LOCATION")
     private String location;
 
-    @Column(name = "image")
+    @Column(name = "IMAGE")
     private String image;
+
 
     public int getId() {
         return id;
@@ -39,6 +45,10 @@ public class Restaurant {
     public void setName(String name) {
         this.name = name;
     }
+
+    public double getPrice() { return price; }
+
+    public void setPrice(double price) { this.price = price; }
 
     public boolean isAlelo() {
         return alelo;
