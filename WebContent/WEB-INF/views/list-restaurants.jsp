@@ -11,24 +11,25 @@
 <body>
 <table border="1">
     <tr>
-        <th>Name       </th>
-        <th>Price  </th>
+        <th>Name</th>
+        <th>Price</th>
         <th>Accepts ALELO</th>
-        <th>Location    </th>
+        <th>Location</th>
     </tr>
     <c:forEach var="restaurant" items="${restaurants}">
 
         <tr>
             <td>${restaurant.name}</td>
             <td>${restaurant.price}</td>
-            <td>${restaurant.alelo}</td>
+            <td>${restaurant.aleloAccepted}</td>
             <td>${restaurant.location}</td>
-            <td><a href="remove-restaurant?id=${restaurant.id}">Remove</a>
+            <td><input type="button" value="Remove" onclick="location.href='delete?id=${restaurant.id}'"></td>
+            <td><input type="button" value="Edit" onclick="location.href='edit?id=${restaurant.id}'"></td>
             </td>
         </tr>
     </c:forEach>
 </table>
 <br>
-<input type="button" value="Add" onclick="location.href='add-restaurant'">
+<input type="button" value="Add" onclick="location.href='add'">
 </body>
 </html>

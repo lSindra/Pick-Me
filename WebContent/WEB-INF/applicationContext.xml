@@ -9,12 +9,16 @@
     <context:annotation-config/>
     <mvc:annotation-driven/>
 
-    <!--&lt;!&ndash; Beans de service &ndash;&gt;-->
-    <!--<bean name="trainingService" class="com.sap.training.servimplsimpl.DefaultTrainingService"/>-->
-
-    <bean name="defaultRestaurantDao" class="com.sap.pickme.daos.impls.DefaultRestaurantDao">
+    <bean name="defaultRestaurantDao" class="com.sap.pickme.daos.impl.DefaultRestaurantDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
     <alias name="defaultRestaurantDao" alias="restaurantDao"/>
+
+
+    <bean name="defaultRestaurantService" class="com.sap.pickme.service.impl.DefaultRestaurantService">
+    </bean>
+
+    <alias name="defaultRestaurantService" alias="restaurantService"/>
+
 </beans>

@@ -1,12 +1,8 @@
-package com.sap.pickme.daos.impls;
+package com.sap.pickme.daos.impl;
 
 import com.sap.pickme.daos.RestaurantDao;
 import com.sap.pickme.models.Restaurant;
-import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.MatchMode;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,22 +27,28 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
     }
 
     @Override
-    public Restaurant getRestaurantByName(String restaurantName) {
-        try(Session session = sessionFactory.openSession()){
-            DetachedCriteria criteria = DetachedCriteria.forClass(Restaurant.class);
-            criteria.add(Restrictions.like("name", restaurantName, MatchMode.ANYWHERE));
-            return (Restaurant) criteria.getExecutableCriteria(session).uniqueResult();
-        }
-    }
-
-    @Override
-    public boolean isAlelo(String restaurantName) {
-        return getRestaurantByName(restaurantName).isAlelo();
+    public Restaurant getRestaurant(int id) {
+        return getHibernateTemplate().get(Restaurant.class, id);
     }
 
     @Transactional
     @Override
     public void addRestaurant(Restaurant restaurant) {
         getHibernateTemplate().save(restaurant);
+    }
+
+    @Transactional
+    @Override
+    public void deleteRestaurant(int id) {
+        Restaurant restaurant = new Restaurant();
+        restaurant.setId(id);
+
+        getHibernateTemplate().delete(restaurant);
+    }
+
+    @Transactional
+    @Override
+    public void editRestaurant(Restaurant restaurant) {
+        getHibernateTemplate().update(restaurant);
     }
 }

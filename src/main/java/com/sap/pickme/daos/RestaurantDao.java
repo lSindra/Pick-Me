@@ -9,9 +9,11 @@ public interface RestaurantDao {
 
     List<Restaurant> listRestaurants();
 
-    Restaurant getRestaurantByName (String roomName);
-
-    boolean isAlelo(String roomName);
+    Restaurant getRestaurant (int id);
 
     void addRestaurant (Restaurant restaurant);
+
+    void deleteRestaurant (int id);
+
+    void editRestaurant (Restaurant restaurant);
 }

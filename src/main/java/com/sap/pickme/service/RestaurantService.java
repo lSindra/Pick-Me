@@ -1,10 +1,18 @@
 package com.sap.pickme.service;
 
-/**
- * Created by I863222 on 26/07/2017.
- */
+import com.sap.pickme.models.Restaurant;
+
+import java.util.List;
+
 public interface RestaurantService {
 
+    List<Restaurant> listRestaurant ();
 
+    void addRestaurant (Restaurant restaurant);
 
+    void deleteRestaurant (int id);
+
+    void editTraining (Restaurant restaurant);
+
+    Restaurant getRestaurant(int id);
 }

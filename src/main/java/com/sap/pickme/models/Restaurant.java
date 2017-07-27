@@ -17,11 +17,12 @@ public class Restaurant {
     @Column(name = "NAME")
     private String name;
 
+    @NotNull
     @Column(name = "PRICE")
     private double price;
 
     @Column(name = "ALELO")
-    private boolean alelo;
+    private boolean acceptsAlelo;
 
     @Column(name = "LOCATION")
     private String location;
@@ -50,12 +51,12 @@ public class Restaurant {
 
     public void setPrice(double price) { this.price = price; }
 
-    public boolean isAlelo() {
-        return alelo;
+    public boolean isAleloAccepted() {
+        return acceptsAlelo;
     }
 
-    public void setAlelo(boolean alelo) {
-        this.alelo = alelo;
+    public void setIsAleloAccepted(boolean acceptsAlelo) {
+        this.acceptsAlelo = acceptsAlelo;
     }
 
     public String getLocation() {
