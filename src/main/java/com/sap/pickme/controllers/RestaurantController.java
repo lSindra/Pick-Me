@@ -35,8 +35,7 @@ public class RestaurantController {
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String createRestaurant(@Valid Restaurant restaurant, BindingResult bindingResult,
-                                 Model model, RedirectAttributes redirectAttributes, HttpServletRequest req) {
-
+                                   RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             return "add-restaurant";
         }
@@ -46,15 +45,14 @@ public class RestaurantController {
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String deleteTrainings(HttpServletRequest request){
+    public String deleteRestaurant(HttpServletRequest request){
         int id = Integer.parseInt(request.getParameter("id"));
         restaurantService.deleteRestaurant(id);
         return "redirect:/list";
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
-    public String editTrainingForm(Model model, HttpServletRequest request){
-        int id = Integer.parseInt(request.getParameter("id"));
+    public String editRestaurantForm(Model model, @RequestParam("id") int id) {
         Restaurant restaurant = restaurantService.getRestaurant(id);
         model.addAttribute("restaurant", restaurant);
         return "/edit-restaurant";
@@ -62,7 +60,7 @@ public class RestaurantController {
 
     //    Saving edit-training
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editTraining(@Valid Restaurant restaurant, BindingResult bindingResult,
+    public String editRestaurant(@Valid Restaurant restaurant, BindingResult bindingResult,
                                Model model, RedirectAttributes redirectAttributes, HttpServletRequest req) {
 
         if (bindingResult.hasErrors()) {
@@ -73,4 +71,8 @@ public class RestaurantController {
         return "redirect:/list";
     }
 
+    @RequestMapping(value = "/vote", method = RequestMethod.POST)
+    public String voteRestaurant(@RequestParam("id") int id) {
+        return "redirect:/list";
+    }
 }

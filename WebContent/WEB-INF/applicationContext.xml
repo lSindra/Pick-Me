@@ -8,6 +8,7 @@
 
     <context:annotation-config/>
     <mvc:annotation-driven/>
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
 
     <bean name="defaultRestaurantDao" class="com.sap.pickme.daos.impl.DefaultRestaurantDao">
         <property name="sessionFactory" ref="sessionFactory"/>

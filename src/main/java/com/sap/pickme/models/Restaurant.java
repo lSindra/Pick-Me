@@ -1,5 +1,7 @@
 package com.sap.pickme.models;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
@@ -13,9 +15,12 @@ public class Restaurant {
     @Column(name = "ID")
     private int id;
 
-    @NotNull
+    @NotEmpty(message = "Cannot be empty")
     @Column(name = "NAME")
     private String name;
+
+    @Column(name = "DESCRIPTION")
+    private String description;
 
     @NotNull
     @Column(name = "PRICE")
@@ -45,6 +50,14 @@ public class Restaurant {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public double getPrice() { return price; }
