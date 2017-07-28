@@ -10,9 +10,11 @@
 /* Set gray background color and 100% height */
 .sidenav {
     height: auto;
-    background-color: rgba(241, 241, 241, 0.5)
+    background-color: #d2d2d2;
 }
-
+.bg-inverse {
+    background-color: #2f2f2f!important;
+}
 
 /* On small screens, set height to 'auto' for sidenav and grid */
 @media screen and (max-width: 767px) {
@@ -30,4 +32,22 @@ body {
 body {
     color: #000000;
     text-shadow: 0 .05rem .1rem rgba(32, 32, 32, 0.5);
+}
+.map {
+    height: 100%;
+    width: 100%;
+}
+.card {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+.card-block {
+    background-color: #ebecff;
+}
+.card-footer {
+    background-color: #bdbdec;
+}
+.card-header {
+    min-height: 200px;
+    max-height: 200px;
 }

@@ -24,20 +24,20 @@ public class RestaurantController {
     @RequestMapping(value = "/list")
     public String listRestaurants(Model model){
         model.addAttribute("restaurants", restaurantService.listRestaurant());
-        return "list-restaurants";
+        return "restaurant/list";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
     public String createRestaurantForm(Model model) {
         model.addAttribute("restaurant", new Restaurant());
-        return "add-restaurant";
+        return "restaurant/add";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String createRestaurant(@Valid Restaurant restaurant, BindingResult bindingResult,
                                    RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            return "add-restaurant";
+            return "restaurant/add";
         }
         restaurantService.addRestaurant(restaurant);
         redirectAttributes.addFlashAttribute("success", true);
@@ -55,7 +55,7 @@ public class RestaurantController {
     public String editRestaurantForm(Model model, @RequestParam("id") int id) {
         Restaurant restaurant = restaurantService.getRestaurant(id);
         model.addAttribute("restaurant", restaurant);
-        return "/edit-restaurant";
+        return "restaurant/edit";
     }
 
     //    Saving edit-training
@@ -64,15 +64,15 @@ public class RestaurantController {
                                Model model, RedirectAttributes redirectAttributes, HttpServletRequest req) {
 
         if (bindingResult.hasErrors()) {
-            return "/edit-restaurant";
+            return "restaurant/edit";
         }
         restaurantService.editTraining(restaurant);
         redirectAttributes.addFlashAttribute("success", true);
         return "redirect:/list";
     }
 
-    @RequestMapping(value = "/vote", method = RequestMethod.POST)
+    @RequestMapping(value = "/vote", method = RequestMethod.GET)
     public String voteRestaurant(@RequestParam("id") int id) {
-        return "redirect:/list";
+        return "page";
     }
 }
