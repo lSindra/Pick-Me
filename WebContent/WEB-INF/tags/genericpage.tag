@@ -16,8 +16,8 @@
         <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
                 <div class="bg-inverse p-4">
-                    <h4 class="text-white">Collapsed content</h4>
-                    <span class="text-muted">Toggleable via the navbar brand.</span>
+                    <h2 class="text-white">Pick Me!</h2>
+                    <span class="text-muted">Eat better, everyday.</span>
                 </div>
             </div>
             <nav class="navbar navbar-inverse bg-inverse">
