@@ -34,7 +34,7 @@ public class RestaurantController {
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
-    public String createRestaurant(@Valid Restaurant restaurant, BindingResult bindingResult,
+    public String createRestaurant( @Valid Restaurant restaurant, BindingResult bindingResult,
                                    RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             return "restaurant/add";

@@ -54,6 +54,7 @@ body {
 .col-sm-4 {
     min-width: 32%;
     max-width: 32%;
+    min-height: 40%;
 }
 .card-deck .card:not(:last-child) {
     margin-right: 15px;
