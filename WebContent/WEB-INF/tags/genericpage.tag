@@ -3,6 +3,12 @@
 <%@attribute name="mainbody" fragment="true" %>
 <%@attribute name="leftsidenav" fragment="true" %>
 <%@attribute name="rightsidenav" fragment="true" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="http" uri="http://www.springframework.org/tags/form" %>
+<!DOCTYPE html>
+<html lang="en">
 <html>
 <body>
 
@@ -13,6 +19,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/bootstrap.min.css">
         <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/general.css">
+
+        <script src="${pageContext.request.contextPath}/resources/jquery-3.2.1.slim.min.js"></script>
         <div class="pos-f-t">
             <div class="collapse" id="navbarToggleExternalContent">
                 <div class="bg-inverse p-4">
@@ -47,7 +55,7 @@
                 </div>
             </div>
         </div>
-        <script src="${pageContext.request.contextPath}/resources/jquery-3.2.1.slim.min.js"></script>
+
         <script src="${pageContext.request.contextPath}/resources/tether.min.js"></script>
         <script src="${pageContext.request.contextPath}/resources/bootstrap.min.js"></script>
 </div>

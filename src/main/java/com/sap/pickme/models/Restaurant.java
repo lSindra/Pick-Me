@@ -1,6 +1,7 @@
 package com.sap.pickme.models;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -32,6 +33,7 @@ public class Restaurant {
     @Column(name = "LOCATION")
     private String location;
 
+    @URL
     @Column(name = "IMAGE")
     private String image;
 
@@ -80,9 +82,7 @@ public class Restaurant {
         this.location = location;
     }
 
-    public String getImage() {
-        return image;
-    }
+    public String getImage() { return image; }
 
     public void setImage(String image) {
         this.image = image;

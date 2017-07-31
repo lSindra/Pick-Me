@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 @Controller
+@RequestMapping(value = "/restaurant")
 public class RestaurantController {
 
     @Resource
@@ -25,6 +26,11 @@ public class RestaurantController {
     public String listRestaurants(Model model){
         model.addAttribute("restaurants", restaurantService.listRestaurant());
         return "restaurant/list";
+    }
+
+    @RequestMapping(value = "/get")
+    public Restaurant getRestaurant(int id) {
+        return restaurantService.getRestaurant(id);
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)

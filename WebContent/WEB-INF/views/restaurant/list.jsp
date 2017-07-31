@@ -1,10 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="http" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
-<html lang="en">
 
 <t:genericpage>
     <jsp:attribute name="header"></jsp:attribute>
@@ -47,7 +41,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card-footer">
+                            <div class="card-footer ">
                                 <small class="text-muted">Votes: 0</small>
                                 <a class="btn btn-success">Vote</a>
                             </div>
@@ -67,10 +61,12 @@
 
         <div class="hide">
             <div class="card col-sm-4" id="hiddenaddcard" hidden>
-                <div class="card-header>">
-                    <img class="card-img-top img-fluid" src="${restaurant.image}" alt="Card image cap" style="min-height: 300px">
-                </div>
                 <form action="/add" method="post">
+                    <div class="card-header>">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="image" placeholder="Enter restaurant image URL"/>
+                        </div>
+                    </div>
                     <div class="card-block">
                         <div class="form-group" id="addRestaurant">
                             <div class="form-group">
@@ -99,15 +95,20 @@
                     </div>
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary" onclick='$("#addRestaurant").submit();'>Submit</button>
+                    <a href="/" class="btn btn-danger btn-sm">Cancel</a>
                 </div>
                 </form>
             </div>
 
             <div class="card col-sm-4" id="hiddeneditcard" hidden>
-                <div class="card-header>">
-                    <img class="card-img-top img-fluid" src="${restaurant.image}" alt="Card image cap" style="min-height: 300px">
-                </div>
                 <form action="/edit" method="post">
+                    <div class="card-header>">
+                        <input type="number" class="hidden-sm-up" value="${restaurant.id}"/>
+                        <img class="card-img-top img-fluid" src="${restaurant.image}" alt="Card image cap" style="min-height: 300px">
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="image" placeholder="Enter restaurant image URL" value="${resutaurant.image}"/>
+                        </div>
+                    </div>
                     <div class="card-block">
                         <div class="form-group" id="editRestaurant">
                             <div class="form-group">
@@ -136,6 +137,7 @@
                     </div>
                     <div class="card-footer">
                         <button type="submit" class="btn btn-primary" onclick='$("#editRestaurant").submit();'>Submit</button>
+                        <a href="/" class="btn btn-danger">Cancel</a>
                     </div>
                 </form>
             </div>
@@ -145,8 +147,12 @@
             function addCard() {
                 $("#addCard").replaceWith($("#hiddenaddcard").html());
             };
-            function editCard(id) {
-                $('#card-'+id).replaceWith($("#hiddeneditcard").html());
+            function editCard(restaurantId) {
+                $('#card-'+restaurantId).replaceWith($("#hiddeneditcard").html());
+                $.get( "/get", { id: restaurantId } )
+                    .done(function( data ) {
+                        alert( "Data Loaded: " + data );
+                });
             };
         </script>
     </jsp:attribute>
