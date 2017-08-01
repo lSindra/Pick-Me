@@ -78,8 +78,7 @@ a {
       background: transparent; }
       #mainNav.navbar-shrink {
         padding: 10px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        background: black; }
+        background: rgba(28, 28, 28, 0.89); }
       #mainNav .nav-link.active {
         outline: none;
         background-color: rgba(255, 255, 255, 0.3); }
@@ -218,6 +217,10 @@ img::-moz-selection {
 body {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0.2); }
 
+.dropdown-toggle {
+    margin-top: 8px;
+    position: fixed;
+}
 
 #login-dp{
     min-width: 250px;
