@@ -3,12 +3,8 @@
 <%@attribute name="mainbody" fragment="true" %>
 <%@attribute name="leftsidenav" fragment="true" %>
 <%@attribute name="rightsidenav" fragment="true" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="http" uri="http://www.springframework.org/tags/form" %>
-<!DOCTYPE html>
-<html lang="en">
+
+
 <html>
 <body>
 

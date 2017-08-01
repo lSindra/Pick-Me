@@ -17,15 +17,12 @@ import javax.validation.Valid;
 public class RestaurantController {
 
     @Resource
-    RestaurantService restaurantService;
+    private RestaurantService restaurantService;
 
     @RequestMapping(value = "/")
-    public String start(){ return "redirect:/list"; }
-
-    @RequestMapping(value = "/list")
-    public String listRestaurants(Model model){
+    public String start(Model model){
         model.addAttribute("restaurants", restaurantService.listRestaurant());
-        return "restaurant/list";
+        return "homepage";
     }
 
     @RequestMapping(value = "/get")
