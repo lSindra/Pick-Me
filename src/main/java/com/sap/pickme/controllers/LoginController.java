@@ -1,8 +1,7 @@
 package com.sap.pickme.controllers;
 
-import com.sap.pickme.daos.impl.DefaultUserDao;
 import com.sap.pickme.models.User;
-import com.sap.pickme.service.UserService;
+import com.sap.pickme.services.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -22,7 +21,7 @@ public class LoginController{
     public String login(@RequestParam("email") String email, @RequestParam("password") String password, HttpSession session) {
         User user = userService.userValid(email, password);
         if(user != null) {
-            session.setAttribute("loggedUser", user);
+            session.setAttribute("userLogged", user);
             return "redirect:/restaurant/";
         }
         return "redirect:/";

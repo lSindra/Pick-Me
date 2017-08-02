@@ -1,7 +1,7 @@
 package com.sap.pickme.controllers;
 
 import com.sap.pickme.models.Restaurant;
-import com.sap.pickme.service.RestaurantService;
+import com.sap.pickme.services.RestaurantService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

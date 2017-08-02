@@ -1,8 +1,8 @@
-package com.sap.pickme.service.impl;
+package com.sap.pickme.services.impl;
 
 import com.sap.pickme.daos.UserDao;
 import com.sap.pickme.models.User;
-import com.sap.pickme.service.UserService;
+import com.sap.pickme.services.UserService;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;

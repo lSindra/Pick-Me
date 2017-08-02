@@ -1,4 +1,4 @@
-package com.sap.pickme.service;
+package com.sap.pickme.services;
 
 import com.sap.pickme.models.Restaurant;
 
