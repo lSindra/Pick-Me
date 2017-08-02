@@ -1,5 +1,6 @@
 #register-form body{
     background-color: #525252;
+    color: rgba(29, 29, 29, 0.87);
 }
 #register-form .centered-form{
     margin-top: 150px;

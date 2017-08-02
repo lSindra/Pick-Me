@@ -10,16 +10,26 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
+    <!-- Restaurant Dao -->
     <bean name="defaultRestaurantDao" class="com.sap.pickme.daos.impl.DefaultRestaurantDao">
         <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-
     <alias name="defaultRestaurantDao" alias="restaurantDao"/>
 
-
+    <!-- Restaurant Service -->
     <bean name="defaultRestaurantService" class="com.sap.pickme.service.impl.DefaultRestaurantService">
     </bean>
-
     <alias name="defaultRestaurantService" alias="restaurantService"/>
+
+    <!-- User Dao -->
+    <bean name="defaultUserDao" class="com.sap.pickme.daos.impl.DefaultUserDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <alias name="defaultUserDao" alias="userDao"/>
+
+    <!-- User Service -->
+    <bean name="defaultUserService" class="com.sap.pickme.service.impl.DefaultUserService">
+    </bean>
+    <alias name="defaultUserService" alias="userService"/>
 
 </beans>

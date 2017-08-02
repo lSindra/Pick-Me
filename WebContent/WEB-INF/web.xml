@@ -14,10 +14,13 @@
         </param-value>
     </context-param>
 
+
+    <!-- Listener -->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <!-- Servlet -->
     <servlet>
         <servlet-name>restaurant</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

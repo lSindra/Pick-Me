@@ -38,10 +38,7 @@
         <div class="intro-body">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-3">
-
-                    </div>
-
+                    <div class="col-md-3"></div>
 
                     <div class="col-md-8 offset-md-1">
                         <h1 class="brand-heading">Pick Me</h1>
@@ -56,88 +53,6 @@
         </div>
     </header>
 
-    <!-- About Section -->
-    <section id="about" class="container content-section text-center">
-
-        <div class="row">
-            <c:forEach var="restaurant" items="${restaurants}">
-
-                <div class="col-md-4">
-                    <div class="column">
-                        <!-- Post-->
-                        <div class="post-module">
-                            <!-- Thumbnail-->
-                            <div class="thumbnail">
-                                <a tabindex="0" class="date" role="button" data-toggle="popover" data-trigger="body"
-                                   data-content="<a href='/restaurant/edit?id=${restaurant.id}' class='btn btn-secondary btn-lg'>Edit</a> <br>
-                                                 <a href='/restaurant/delete?id=${restaurant.id}' class='btn btn-danger'>Delete</a>">
-                                    <div class="day"><i class="fa fa-bars" aria-hidden="true"></i></div>
-                                </a>
-                                <img src="${restaurant.image}" class="img-responsive" alt="">
-                            </div>
-                            <!-- Post Content-->
-                            <div class="post-content">
-                                <div class="category">Pizza</div>
-                                <h1 class="title">${restaurant.name}</h1>
-                                <h2 class="sub_title">R$: ${restaurant.price} <c:if test="${restaurant.aleloAccepted}"><img src="http://creditoedebito.com.br/wp-content/uploads/2011/12/alelo.jpg" class="img-responsive " height="25px" alt=""></c:if></h2>
-                                <p class="description">${restaurant.description} <br> ${restaurant.location}</p>
-                                <div class="post-meta">
-                                    <span class="comments"><i class="fa fa-comments"></i><a href="#"> 0 Votes</a></span>
-                                    <a class="btn btn-success btn-sm">Vote</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-            </c:forEach>
-
-        </div>
-    </section>
-
-    <!-- Download Section -->
-    <section id="download" class="content-section text-center">
-        <div class="download-section">
-            <div class="container">
-                <div class="col-lg-8 offset-md-2">
-                    <h2>Most Voted</h2>
-                    <p>This is the most voted restaurant.</p>
-                    <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="container content-section text-center">
-        <div class="row">
-            <div class="col-lg-8 offset-md-2">
-                <h2>Contact Start Bootstrap</h2>
-                <p>Feel free to leave us a comment on the <a href="http://startbootstrap.com/template-overviews/grayscale/">Grayscale template overview page</a> on Start Bootstrap to give some feedback about this theme!</p>
-                <ul class="list-inline banner-social-buttons">
-                    <li class="list-inline-item">
-                        <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="https://github.com/BlackrockDigital/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                    </li>
-                    <li class="list-inline-item">
-                        <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map Section -->
-    <div id="map"></div>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container text-center">
-            <p>Copyright &copy; Your Website 2017</p>
-        </div>
-    </footer>
 
     <!-- Register Modal -->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
