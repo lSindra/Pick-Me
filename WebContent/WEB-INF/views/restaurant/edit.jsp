@@ -9,7 +9,6 @@
 
 <html>
 <body>
-<h1>Edit Trainings!</h1>
 <hr/>
 <form:form modelAttribute="restaurant" servletRelativeAction="/restaurant/edit" method="POST">
     <form:input type="hidden" value="${restaurant.id}" path="id"/>

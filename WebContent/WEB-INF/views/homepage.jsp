@@ -47,7 +47,7 @@
                                 </form>
                             </div>
                             <div class="bottom text-center">
-                                <button class="btn btn-primary btn-block">Register</button>
+                                <button class="btn btn-primary btn-block" data-toggle="modal" data-target="#registerModal">Register</button>
                             </div>
                         </div>
                     </li>
@@ -162,7 +162,12 @@
         </div>
     </footer>
 
-
+    <!-- Register Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <t:registerForm></t:registerForm>
+        </div>
+    </div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="../../resources/vendor/jquery/jquery.min.js"></script>
@@ -188,6 +193,7 @@
             });
         });
     </script>
+
     <script>
         $('[data-toggle="popover"]').popover({
             container: 'body',
