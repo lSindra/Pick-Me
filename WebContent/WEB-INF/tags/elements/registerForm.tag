@@ -38,7 +38,6 @@
                             <label for="date">Birthday</label>
                             <input type="date" name="date" id="date" class="form-control input-sm">
                         </div>
-
                         <input type="submit" value="Register" class="btn btn-info btn-block">
 
                     </form>

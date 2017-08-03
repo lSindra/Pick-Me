@@ -2,6 +2,7 @@ package com.sap.pickme.models;
 
 import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
@@ -31,8 +32,8 @@ public class User {
     private String email;
 
     @Column(name = "DATE")
-    @Type(type="date")
-    private Date date;
+    @DateTimeFormat
+    private String date;
 
     public int getId() {
         return id;
@@ -66,11 +67,11 @@ public class User {
         this.email = email;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 }
