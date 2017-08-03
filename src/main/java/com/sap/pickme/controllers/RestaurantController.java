@@ -44,14 +44,14 @@ public class RestaurantController {
         }
         restaurantService.addRestaurant(restaurant);
         redirectAttributes.addFlashAttribute("success", true);
-        return "redirect:/restaurant";
+        return "redirect:/restaurant/";
     }
 
     @RequestMapping(value = "/delete", method = RequestMethod.GET)
     public String deleteRestaurant(HttpServletRequest request){
         int id = Integer.parseInt(request.getParameter("id"));
         restaurantService.deleteRestaurant(id);
-        return "redirect:/restaurant";
+        return "redirect:/restaurant/";
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.GET)
@@ -71,7 +71,7 @@ public class RestaurantController {
         }
         restaurantService.editTraining(restaurant);
         redirectAttributes.addFlashAttribute("success", true);
-        return "redirect:/restaurant";
+        return "redirect:/restaurant/";
     }
 
     @RequestMapping(value = "/vote", method = RequestMethod.GET)

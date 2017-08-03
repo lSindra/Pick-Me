@@ -18,17 +18,19 @@ public class DefaultUserDao extends HibernateDaoSupport implements UserDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public User userValid(String email, String password) {
+    public User getUserByEmail(String email) {
         try(Session session = sessionFactory.openSession()){
             DetachedCriteria criteria = DetachedCriteria.forClass(User.class);
             criteria.add(Restrictions.like("email", email, MatchMode.EXACT));
             if (criteria.getExecutableCriteria(session).uniqueResult() != null) {
-                User user = (User) (criteria.getExecutableCriteria(session).uniqueResult());
-                if(user.getPassword().equals(password)) {
-                    return user;
-                }
+                return (User) (criteria.getExecutableCriteria(session).uniqueResult());
             }
             return null;
         }
+    }
+
+    @Override
+    public void registerUser(User user) {
+        getHibernateTemplate().save(user);
     }
 }

@@ -10,12 +10,6 @@
     <mvc:annotation-driven/>
     <mvc:resources mapping="/resources/**" location="/resources/"/>
 
-    <!-- Interceptor -->
-    <mvc:interceptors>
-        <bean class=
-                      "com.sap.pickme.interceptors.AutorizationInterceptor" />
-    </mvc:interceptors>
-
     <!-- Restaurant Dao -->
     <bean name="defaultRestaurantDao" class="com.sap.pickme.daos.impl.DefaultRestaurantDao">
         <property name="sessionFactory" ref="sessionFactory"/>
@@ -34,8 +28,9 @@
     <alias name="defaultUserDao" alias="userDao"/>
 
     <!-- User Service -->
-    <bean name="defaultUserService" class="com.sap.pickme.services.impl.DefaultUserService">
-    </bean>
+    <bean name="defaultUserService" class="com.sap.pickme.services.impl.DefaultUserService"/>
     <alias name="defaultUserService" alias="userService"/>
+
+
 
 </beans>

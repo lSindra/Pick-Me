@@ -124,12 +124,12 @@ a {
   -webkit-transition: background .3s ease-in-out;
   -moz-transition: background .3s ease-in-out;
   transition: background .3s ease-in-out;
-  color: white;
-  border: 2px solid white;
+  color: rgba(55, 55, 55, 0.75);
+  border: 2px solid rgba(101, 101, 101, 0.56);
   border-radius: 100% !important;
   background: transparent; }
   .btn-circle:hover, .btn-circle:focus {
-    color: white;
+    color: #8f8f8f;
     outline: none;
     background: rgba(255, 255, 255, 0.1); }
 

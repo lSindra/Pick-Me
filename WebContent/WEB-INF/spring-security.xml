@@ -1,0 +1,30 @@
+<b:beans xmlns="http://www.springframework.org/schema/security"
+                   xmlns:b="http://www.springframework.org/schema/beans"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+<http pattern="/user/**" security="none"/>
+
+<http auto-config="true"  use-expressions="true">
+    <intercept-url pattern="/homepage" access="permitAll" />
+    <intercept-url pattern="/login" access="permitAll" />
+    <intercept-url pattern="/resources/**" access="permitAll" />
+    <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+    <form-login login-page="/homepage" authentication-success-forward-url="/restaurant/"
+                username-parameter="email" password-parameter="password"/>
+    <logout logout-success-url="/homepage" />
+</http>
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="userDetails"/>
+    </authentication-manager>
+
+    <b:bean id="myUserDetailsService"
+            class="com.sap.pickme.services.security.UserDetailService">
+    </b:bean>
+    
+    <b:alias name="myUserDetailsService" alias="userDetails"/>
+
+</b:beans>

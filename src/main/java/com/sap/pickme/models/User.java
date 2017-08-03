@@ -13,12 +13,12 @@ import java.util.Date;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "ID")
+    @Column(name = "ID", unique = true)
     private int id;
 
     @NotBlank(message = "Cannot be empty")
-    @Column(name = "USERNAME")
-    private String userName;
+    @Column(name = "NAME")
+    private String name;
 
     @NotBlank
     @Pattern(regexp="^[A-Za-z0-9]*$")
@@ -27,10 +27,9 @@ public class User {
 
     @NotBlank
     @Pattern(regexp="[A-Za-z0-9._%-+]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
-    @Column(name = "EMAIL")
+    @Column(name = "EMAIL", unique = true)
     private String email;
 
-    @NotBlank
     @Column(name = "DATE")
     @Type(type="date")
     private Date date;
@@ -43,12 +42,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getName() {
+        return name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getPassword() {

@@ -14,7 +14,13 @@ public class DefaultUserService implements UserService {
 
     @Transactional
     @Override
-    public User userValid(String email, String password) {
-        return userDao.userValid(email, password);
+    public User getUserByEmail(String email) {
+        return userDao.getUserByEmail(email);
+    }
+
+    @Transactional
+    @Override
+    public void registerUser(User user) {
+        userDao.registerUser(user);
     }
 }

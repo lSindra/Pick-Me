@@ -44,9 +44,6 @@
                         <h1 class="brand-heading">Pick Me</h1>
                         <p class="intro-text">An answer for your questions.
                             <br>Restaurant picker.</p>
-                        <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
                     </div>
                 </div>
             </div>

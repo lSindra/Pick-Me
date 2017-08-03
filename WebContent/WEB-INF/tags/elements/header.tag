@@ -1,5 +1,5 @@
 <%@ tag description="Page header" pageEncoding="UTF-8"%>
-<%@ attribute name="navButtons" fragment="true" %>
+<%@ attribute name="navButtons" fragment="true" required="false" %>
 
 <head>
 
@@ -35,6 +35,7 @@
     </style>
 
 </head>
+<section id="home"/>
 
 <div id="header">
     <nav id="mainNav" class="navbar fixed-top navbar-toggleable-md navbar-light">
@@ -42,7 +43,7 @@
             Menu <i class="fa fa-bars"></i>
         </button>
         <div class="container">
-            <a class="navbar-brand" href="/">Home</a>
+            <a class="navbar-brand" href="#home">Home</a>
             <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
                     <jsp:invoke fragment="navButtons"/>
