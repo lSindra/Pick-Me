@@ -14,9 +14,11 @@ public class AutorizationInterceptor extends HandlerInterceptorAdapter {
                              Object controller) throws Exception {
 
         String uri = request.getRequestURI();
-        if( uri.endsWith("homepage") ||
+        if( uri.contains("homepage") ||
             uri.contains("resources") ||
-            Objects.equals(uri, "/")){
+            uri.endsWith("login") ||
+            uri.endsWith("register") ||
+                Objects.equals(uri, "/")){
             return true;
         }
 

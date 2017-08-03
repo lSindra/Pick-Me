@@ -24,11 +24,8 @@
             <li class="nav-item">
                 <a class="nav-link" href="#download">Most Voted</a>
             </li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
-                <ul id="login-dp" class="dropdown-menu">
-                    <elem:loginForm></elem:loginForm>
-                </ul>
+            <li class="nav-item">
+                <a class="text-center" href="/user/logout">Logout</a>
             </li>
         </jsp:attribute>
 </elem:header>
@@ -138,13 +135,6 @@
         <p>Copyright &copy; Your Website 2017</p>
     </div>
 </footer>
-
-<!-- Register Modal -->
-<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <elem:registerForm></elem:registerForm>
-    </div>
-</div>
 
 <!-- Bootstrap core JavaScript -->
 <script src="../../../resources/vendor/jquery/jquery.min.js"></script>
