@@ -37,6 +37,20 @@
 
 })(jQuery); // End of use strict
 
+$(window).on('load', function() {
+    $('.post-module').hover(function() {
+        $(this).find('.description').stop().animate({
+            height: "toggle",
+            opacity: "toggle"
+        }, 300);
+    });
+});
+
+$('[data-toggle="popover"]').popover({
+    container: 'body',
+    animation: true,
+    html: true
+})
 
 // Google Maps Scripts
 var map = null;
@@ -189,3 +203,5 @@ function init() {
         icon: image
     });
 }
+
+

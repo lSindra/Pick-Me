@@ -8,6 +8,9 @@
     <file type="web" url="file://$PROJECT_DIR$/javaspringtraining-day3-rest-complete" />
     <file type="web" url="file://$PROJECT_DIR$/javaspringtraining-day4-initial" />
   </component>
+  <component name="JavaScriptSettings">
+    <option name="languageLevel" value="JS_1_8_5" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>

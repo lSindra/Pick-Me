@@ -12,9 +12,11 @@
     <intercept-url pattern="/login" access="permitAll" />
     <intercept-url pattern="/resources/**" access="permitAll" />
     <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
-    <form-login login-page="/homepage" authentication-success-forward-url="/restaurant/"
+    <access-denied-handler error-page=""/>
+    <form-login login-page="/homepage" authentication-success-handler-ref="loginSuccessHandler"
                 username-parameter="email" password-parameter="password"/>
-    <logout logout-success-url="/homepage" />
+    <logout logout-url="/logout" logout-success-url="/homepage" delete-cookies="JSessionID"/>
+    <csrf disabled="true"/>
 </http>
 
     <authentication-manager>
@@ -26,5 +28,10 @@
     </b:bean>
     
     <b:alias name="myUserDetailsService" alias="userDetails"/>
+
+    <b:bean id="loginSuccessHandler" class="com.sap.pickme.services.security.LoginSuccessHandler">
+        <b:property name="defaultTargetUrl" value="/restaurant/"/>
+        <b:property name="alwaysUseDefaultTargetUrl" value="true"/>
+    </b:bean>
 
 </b:beans>

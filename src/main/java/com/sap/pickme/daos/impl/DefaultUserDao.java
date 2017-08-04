@@ -31,6 +31,8 @@ public class DefaultUserDao extends HibernateDaoSupport implements UserDao {
 
     @Override
     public void registerUser(User user) {
-        getHibernateTemplate().save(user);
+        if (getUserByEmail(user.getEmail()) == null){
+            getHibernateTemplate().save(user);
+        }
     }
 }

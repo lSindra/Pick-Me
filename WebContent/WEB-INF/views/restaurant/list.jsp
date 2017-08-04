@@ -25,7 +25,7 @@
                 <a class="nav-link" href="#download">Most Voted</a>
             </li>
             <li class="nav-item">
-                <a class="text-center" href="/user/logout">Logout</a>
+                <a class="text-center" href="/logout">Logout</a>
             </li>
         </jsp:attribute>
 </elem:header>
@@ -99,29 +99,8 @@
             <div class="col-lg-8 offset-md-2">
                 <h2>Most Voted</h2>
                 <p>This is the most voted restaurant.</p>
-                <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Visit Download Page</a>
+                <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Place Holder</a>
             </div>
-        </div>
-    </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="container content-section text-center">
-    <div class="row">
-        <div class="col-lg-8 offset-md-2">
-            <h2>Contact Start Bootstrap</h2>
-            <p>Feel free to leave us a comment on the <a href="http://startbootstrap.com/template-overviews/grayscale/">Grayscale template overview page</a> on Start Bootstrap to give some feedback about this theme!</p>
-            <ul class="list-inline banner-social-buttons">
-                <li class="list-inline-item">
-                    <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="https://github.com/BlackrockDigital/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                </li>
-                <li class="list-inline-item">
-                    <a href="https://plus.google.com/+Startbootstrap/posts" class="btn btn-default btn-lg"><i class="fa fa-google-plus fa-fw"></i> <span class="network-name">Google+</span></a>
-                </li>
-            </ul>
         </div>
     </div>
 </section>
@@ -132,7 +111,7 @@
 <!-- Footer -->
 <footer>
     <div class="container text-center">
-        <p>Copyright &copy; Your Website 2017</p>
+        <p>Pick Me!</p>
     </div>
 </footer>
 

@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 
@@ -17,12 +18,14 @@ public class User {
     @Column(name = "ID", unique = true)
     private int id;
 
-    @NotBlank(message = "Cannot be empty")
+    @Size(min=2, max=30)
     @Column(name = "NAME")
+    @Pattern(regexp = "^[a-zA-Z\\s]*$")
     private String name;
 
     @NotBlank
-    @Pattern(regexp="^[A-Za-z0-9]*$")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{6,}$", message = "Password must have at least one uppercase letter, one lowercase letter and one number.")
+    @Size(min = 6, message = "Mininum size of 6 characters")
     @Column(name = "PASSWORD")
     private String password;
 
@@ -32,7 +35,7 @@ public class User {
     private String email;
 
     @Column(name = "DATE")
-    @DateTimeFormat
+    @DateTimeFormat(pattern="MM/dd/yyyy")
     private String date;
 
     public int getId() {

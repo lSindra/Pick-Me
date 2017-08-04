@@ -2,7 +2,12 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="elem" tagdir="/WEB-INF/tags/elements" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
+
+<sec:authorize access="isAuthenticated()">
+    <% response.sendRedirect("/restaurant/"); %>
+</sec:authorize>
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
@@ -13,21 +18,19 @@
 <html lang="en">
 
 
+
 <body id="page-top">
 
     <!-- Navigation -->
     <elem:header>
         <jsp:attribute name="navButtons">
             <li class="nav-item">
-                <a class="nav-link" href="#about">Restaurants</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#download">Most Voted</a>
+                <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">Register</a>
             </li>
             <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Login</b> <span class="caret"></span></a>
                 <ul id="login-dp" class="dropdown-menu">
-                    <elem:loginForm></elem:loginForm>
+                    <elem:loginForm/>
                 </ul>
             </li>
         </jsp:attribute>
@@ -54,7 +57,7 @@
     <!-- Register Modal -->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <elem:registerForm></elem:registerForm>
+            <elem:registerForm/>
         </div>
     </div>
 
@@ -72,24 +75,6 @@
     <!-- Custom scripts for this template -->
     <script src="../../resources/js/grayscale.min.js"></script>
 
-    <script>
-        $(window).on('load', function() {
-            $('.post-module').hover(function() {
-                $(this).find('.description').stop().animate({
-                    height: "toggle",
-                    opacity: "toggle"
-                }, 300);
-            });
-        });
-    </script>
-
-    <script>
-        $('[data-toggle="popover"]').popover({
-            container: 'body',
-            animation: true,
-            html: true
-        })
-    </script>
 
 </body>
 

@@ -13,3 +13,12 @@
     padding: 25px;
     min-width: 32rem;
 }
+
+.green-color:focus, .green-color {
+    color: #24d801;
+    border-color: #24d801;
+}
+.red-color:focus, .red-color {
+    color: #d8001b;
+    border-color: #d8001b;
+}

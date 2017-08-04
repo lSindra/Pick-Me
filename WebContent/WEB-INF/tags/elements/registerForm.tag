@@ -12,25 +12,30 @@
                     <h6>Welcome</h6>
                 </div>
                 <div class="panel-body">
-                    <form class="form" role="form" method="post" action="/user/register" accept-charset="UTF-8">
+                    <form class="form" role="form" id="form" method="post" action="/user/register" accept-charset="UTF-8">
                         <div class="form-group">
-                            <input type="text" name="name" id="name" class="form-control input-sm" placeholder="Name" required>
+                            <input type="text" name="name" id="nameRegister" class="form-control input-sm" placeholder="Name" required pattern="^[a-zA-Z\s]*$"
+                                   oninput="nameCheck()"
+                                   data-toggle="popover" title="Password Strength" data-content="Enter Password...">
                         </div>
 
                         <div class="form-group">
-                            <input type="email" name="email" id="email" class="form-control input-sm" placeholder="Email Address" required>
+                            <input type="email" name="email" id="emailRegister" class="form-control input-sm" placeholder="Email Address" required  pattern="[A-Za-z0-9._%-+]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}"
+                                   oninput="emailCheck()">
                         </div>
 
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
-                                    <input type="password" name="password" id="password" class="form-control input-sm" placeholder="Password" required>
+                                    <input type="password" id="password1" class="form-control input-sm" placeholder="Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$"
+                                           oninput="passwordCheck1()">
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
 
                                 <div class="form-group">
-                                    <input type="password" id="password_confirmation" class="form-control input-sm" placeholder="Confirm Password" required>
+                                    <input type="password" id="password2" class="form-control input-sm" placeholder="Confirm Password" required
+                                           oninput="passwordCheck2()">
                                 </div>
                             </div>
                         </div>
@@ -38,7 +43,7 @@
                             <label for="date">Birthday</label>
                             <input type="date" name="date" id="date" class="form-control input-sm">
                         </div>
-                        <input type="submit" value="Register" class="btn btn-info btn-block">
+                        <input type="submit" id="register-button" value="Register" class="btn btn-info btn-block" disabled>
 
                     </form>
                 </div>
@@ -46,3 +51,5 @@
         </div>
     </div>
 </div>
+
+<script src="../../../resources/js/registerForm.js"></script>
