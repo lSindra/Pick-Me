@@ -22,3 +22,16 @@
     color: #d8001b;
     border-color: #d8001b;
 }
+
+
+.popover {
+    border-color: rgba(217, 72, 76, 0.98);
+}
+.popover-title {
+    color: #eb3c42;
+    background-color:#f2dede;
+    border-color:#ebccd1;
+}
+.popover>.arrow {
+    border-top-color: #00bfeb;
+}

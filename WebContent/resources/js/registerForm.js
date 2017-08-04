@@ -41,10 +41,11 @@
             if (!nameInput.validity.patternMismatch && nameInput.value !== "") {
                 nameInput.classList.remove("red-color");
                 nameInput.classList.add("green-color");
+                $('[data-toggle="namePop"]').popover('hide')
             } else {
                 nameInput.classList.remove("green-color");
                 nameInput.classList.add("red-color");
-                nameInput.popover({ trigger: 'focus' })
+                $('[data-toggle="namePop"]').popover('show')
             }
             checkForm();
         }
@@ -54,9 +55,11 @@
             if (!emailInput.validity.patternMismatch && emailInput.value !== "") {
                 emailInput.classList.remove("red-color");
                 emailInput.classList.add("green-color");
+                $('[data-toggle="emailPop"]').popover('hide')
             } else {
                 emailInput.classList.remove("green-color");
                 emailInput.classList.add("red-color");
+                $('[data-toggle="emailPop"]').popover('show')
             }
             checkForm();
         }
@@ -65,9 +68,11 @@
             if (!password1Input.validity.patternMismatch && password1Input.value !== "") {
                 password1Input.classList.remove("red-color");
                 password1Input.classList.add("green-color");
+                $('[data-toggle="passwordPop"]').popover('hide')
             } else {
                 password1Input.classList.remove("green-color");
                 password1Input.classList.add("red-color");
+                $('[data-toggle="passwordPop"]').popover('show')
             }
             passwordCheck2();
             checkForm();

@@ -16,19 +16,21 @@
                         <div class="form-group">
                             <input type="text" name="name" id="nameRegister" class="form-control input-sm" placeholder="Name" required pattern="^[a-zA-Z\s]*$"
                                    oninput="nameCheck()"
-                                   data-toggle="popover" title="Password Strength" data-content="Enter Password...">
+                                   data-toggle="namePop" title="Popover Header" data-trigger="focus" data-content="Some content inside the popover">
                         </div>
 
                         <div class="form-group">
                             <input type="email" name="email" id="emailRegister" class="form-control input-sm" placeholder="Email Address" required  pattern="[A-Za-z0-9._%-+]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}"
-                                   oninput="emailCheck()">
+                                   oninput="emailCheck()"
+                                   data-toggle="emailPop" title="Popover Header" data-trigger="focus" data-content="Some content inside the popover">
                         </div>
 
                         <div class="row">
                             <div class="col-xs-6 col-sm-6 col-md-6">
                                 <div class="form-group">
                                     <input type="password" id="password1" class="form-control input-sm" placeholder="Password" required pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{6,}$"
-                                           oninput="passwordCheck1()">
+                                           oninput="passwordCheck1()"
+                                           data-toggle="passwordPop" title="Popover Header" data-trigger="focus" data-content="Some content inside the popover">
                                 </div>
                             </div>
                             <div class="col-xs-6 col-sm-6 col-md-6">
