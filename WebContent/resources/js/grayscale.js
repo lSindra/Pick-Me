@@ -15,6 +15,21 @@
         }
     });
 
+    $(window).on('load', function() {
+        $('.post-module').hover(function() {
+            $(this).find('.description').stop().animate({
+                height: "toggle",
+                opacity: "toggle"
+            }, 300);
+        });
+    });
+
+    $('[data-toggle="popover"]').popover({
+        container: 'body',
+        animation: true,
+        html: true
+    });
+
     // Activate scrollspy to add active class to navbar items on scroll
     $('body').scrollspy({
         target: '#mainNav',
@@ -52,13 +67,13 @@ $('[data-toggle="popover"]').popover({
     html: true
 })
 
-// Google Maps Scripts
-var map = null;
-// When the window has finished loading create our google map below
-google.maps.event.addDomListener(window, 'load', init);
-google.maps.event.addDomListener(window, 'resize', function() {
-    map.setCenter(new google.maps.LatLng(40.6700, -73.9400));
-});
+// // Google Maps Scripts
+// var map = null;
+// // When the window has finished loading create our google map below
+// google.maps.event.addDomListener(window, 'load', init);
+// google.maps.event.addDomListener(window, 'resize', function() {
+//     map.setCenter(new google.maps.LatLng(40.6700, -73.9400));
+// });
 
 function init() {
     // Basic options for a simple Google Map

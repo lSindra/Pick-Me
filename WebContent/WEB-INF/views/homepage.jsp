@@ -70,7 +70,7 @@
     <script src="../../resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Google Maps API -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAZ-i7xPeqanrDkGPNvaTAi9Lnvv2C2g&sensor=false"></script>
+    <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAZ-i7xPeqanrDkGPNvaTAi9Lnvv2C2g&sensor=false"></script>--%>
 
     <!-- Custom scripts for this template -->
     <script src="../../resources/js/grayscale.min.js"></script>

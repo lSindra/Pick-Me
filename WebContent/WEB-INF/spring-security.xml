@@ -20,7 +20,9 @@
 </http>
 
     <authentication-manager>
-        <authentication-provider user-service-ref="userDetails"/>
+        <authentication-provider user-service-ref="userDetails">
+            <password-encoder ref="passwordEncoder"/>
+        </authentication-provider>
     </authentication-manager>
 
     <b:bean id="myUserDetailsService"
@@ -33,5 +35,7 @@
         <b:property name="defaultTargetUrl" value="/restaurant/"/>
         <b:property name="alwaysUseDefaultTargetUrl" value="true"/>
     </b:bean>
+
+    <b:bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
 
 </b:beans>

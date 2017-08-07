@@ -24,8 +24,7 @@ public class User {
     private String name;
 
     @NotBlank
-    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{6,}$", message = "Password must have at least one uppercase letter, one lowercase letter and one number.")
-    @Size(min = 6, message = "Mininum size of 6 characters")
+    @Size(min = 6)
     @Column(name = "PASSWORD")
     private String password;
 

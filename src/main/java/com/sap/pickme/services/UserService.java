@@ -7,4 +7,6 @@ public interface UserService {
     User getUserByEmail (String email);
 
     void registerUser (User user);
+
+    User encryptPassword (User user);
 }

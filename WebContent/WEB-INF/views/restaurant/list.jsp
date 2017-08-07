@@ -124,29 +124,10 @@
 <script src="../../../resources/vendor/jquery-easing/jquery.easing.min.js"></script>
 
 <!-- Google Maps API -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAZ-i7xPeqanrDkGPNvaTAi9Lnvv2C2g&sensor=false"></script>
+<%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAZ-i7xPeqanrDkGPNvaTAi9Lnvv2C2g&sensor=false"></script>--%>
 
 <!-- Custom scripts for this template -->
 <script src="../../../resources/js/grayscale.min.js"></script>
-
-<script>
-    $(window).on('load', function() {
-        $('.post-module').hover(function() {
-            $(this).find('.description').stop().animate({
-                height: "toggle",
-                opacity: "toggle"
-            }, 300);
-        });
-    });
-</script>
-
-<script>
-    $('[data-toggle="popover"]').popover({
-        container: 'body',
-        animation: true,
-        html: true
-    })
-</script>
 
 </body>
 
