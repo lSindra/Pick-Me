@@ -8,6 +8,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.Date;
+import java.util.Set;
 
 
 @Entity
@@ -36,6 +37,10 @@ public class User {
     @Column(name = "DATE")
     @DateTimeFormat(pattern="MM/dd/yyyy")
     private String date;
+
+    @OneToMany(mappedBy="RESTAURANT")
+    private Set<Vote> votes;
+
 
     public int getId() {
         return id;
@@ -77,5 +82,11 @@ public class User {
         this.date = date;
     }
 
+    public Set<Vote> getVotes() {
+        return votes;
+    }
 
+    public void setVotes(Set<Vote> votes) {
+        this.votes = votes;
+    }
 }
