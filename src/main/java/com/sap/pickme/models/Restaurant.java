@@ -37,6 +37,9 @@ public class Restaurant {
     @Column(name = "IMAGE")
     private String image;
 
+    @Column(name = "VOTES")
+    private int votes;
+
 
     public int getId() {
         return id;
@@ -70,7 +73,7 @@ public class Restaurant {
         return aleloAccepted;
     }
 
-    public void setIsAleloAccepted(boolean aleloAccepted) {
+    public void setAleloAccepted(boolean aleloAccepted) {
         this.aleloAccepted = aleloAccepted;
     }
 
@@ -86,5 +89,13 @@ public class Restaurant {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getVotes() {
+        return votes;
+    }
+
+    public void setVotes(int votes) {
+        this.votes = votes;
     }
 }

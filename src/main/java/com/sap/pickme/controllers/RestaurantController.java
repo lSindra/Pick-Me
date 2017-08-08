@@ -35,17 +35,10 @@ public class RestaurantController {
     public String createRestaurant( @Valid Restaurant restaurant, BindingResult bindingResult,
                                    RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            return "restaurant/add";
+            return "redirect:/restaurant/";
         }
         restaurantService.addRestaurant(restaurant);
         redirectAttributes.addFlashAttribute("success", true);
-        return "redirect:/restaurant/";
-    }
-
-    @RequestMapping(value = "/delete", method = RequestMethod.GET)
-    public String deleteRestaurant(HttpServletRequest request){
-        int id = Integer.parseInt(request.getParameter("id"));
-        restaurantService.deleteRestaurant(id);
         return "redirect:/restaurant/";
     }
 
@@ -54,10 +47,17 @@ public class RestaurantController {
                                Model model, RedirectAttributes redirectAttributes, HttpServletRequest req) {
 
         if (bindingResult.hasErrors()) {
-            return "restaurant/";
+            return "redirect:/restaurant/";
         }
         restaurantService.editTraining(restaurant);
         redirectAttributes.addFlashAttribute("success", true);
+        return "redirect:/restaurant/";
+    }
+
+    @RequestMapping(value = "/delete", method = RequestMethod.GET)
+    public String deleteRestaurant(HttpServletRequest request){
+        int id = Integer.parseInt(request.getParameter("id"));
+        restaurantService.deleteRestaurant(id);
         return "redirect:/restaurant/";
     }
 

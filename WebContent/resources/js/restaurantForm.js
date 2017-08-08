@@ -35,7 +35,7 @@
                 }
                 if(oElements.aleloAccepted.val() === "true") {
                     oElements.aleloAccepted.prop("checked", true);
-                }
+                } else oElements.aleloAccepted.prop("checked", false);
             }
         });
     }

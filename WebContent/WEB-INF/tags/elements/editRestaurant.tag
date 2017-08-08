@@ -11,7 +11,7 @@
                     <h1 class="panel-title">Restaurant</h1>
                 </div>
                 <div class="panel-body">
-                    <form class="form" role="form" id="form" method="POST" action="/restaurant/edit" accept-charset="UTF-8">
+                    <form class="form" role="form" id="form" method="post" action="/restaurant/edit/" accept-charset="UTF-8">
                         <input type="hidden" name="id" id="idEdit"/>
                     <%-- Name --%>
                         <div class="form-group">
