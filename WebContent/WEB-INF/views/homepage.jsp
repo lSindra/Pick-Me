@@ -73,7 +73,7 @@
     <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAZ-i7xPeqanrDkGPNvaTAi9Lnvv2C2g&sensor=false"></script>--%>
 
     <!-- Custom scripts for this template -->
-    <script src="../../resources/js/grayscale.min.js"></script>
+    <script src="../../resources/js/grayscale.js"></script>
 
 
 </body>

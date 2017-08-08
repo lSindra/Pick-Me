@@ -1,0 +1,33 @@
+#restaurant-form body{
+    background-color: #525252;
+    color: rgba(29, 29, 29, 0.87);
+}
+#restaurant-form .centered-form{
+    margin-top: 150px;
+    min-width: 32rem;
+}
+
+#restaurant-form .centered-form .panel{
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: rgba(0, 0, 0, 0.3) 20px 20px 20px;
+    padding: 25px;
+    min-width: 32rem;
+}
+
+.green-color:focus, .green-color {
+    color: #24d801;
+    border-color: #24d801;
+}
+.red-color:focus, .red-color {
+    color: #d8001b;
+    border-color: #d8001b;
+}
+
+.popover {
+    border-color: rgba(217, 72, 76, 0.98);
+}
+.popover-title {
+    color: #eb3c42;
+    background-color:#f2dede;
+    border-color:#ebccd1;
+}

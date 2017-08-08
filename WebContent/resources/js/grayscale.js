@@ -25,6 +25,7 @@
     });
 
     $('[data-toggle="popover"]').popover({
+        delay: 100,
         container: 'body',
         animation: true,
         html: true
@@ -61,11 +62,6 @@ $(window).on('load', function() {
     });
 });
 
-$('[data-toggle="popover"]').popover({
-    container: 'body',
-    animation: true,
-    html: true
-})
 
 // // Google Maps Scripts
 // var map = null;

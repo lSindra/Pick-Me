@@ -29,7 +29,6 @@
                 emailInput.classList.contains("green-color") &&
                 password1Input.classList.contains("green-color") &&
                 password2Input.classList.contains("green-color")) {
-
                 registerButton.disabled = false;
             } else {
                 registerButton.disabled = true;

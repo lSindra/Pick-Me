@@ -70,8 +70,8 @@ public class Restaurant {
         return aleloAccepted;
     }
 
-    public void setIsAleloAccepted(boolean acceptsAlelo) {
-        this.aleloAccepted = acceptsAlelo;
+    public void setIsAleloAccepted(boolean aleloAccepted) {
+        this.aleloAccepted = aleloAccepted;
     }
 
     public String getLocation() {

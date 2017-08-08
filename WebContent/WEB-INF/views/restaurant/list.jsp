@@ -56,6 +56,8 @@
 <!-- About Section -->
 <section id="about" class="container content-section text-center">
 
+    <a class="nav-link" href="#" data-toggle="modal" data-target="#restaurantAddModal">New Restaurant</a>
+
     <div class="row">
         <c:forEach var="restaurant" items="${restaurants}">
 
@@ -65,8 +67,8 @@
                     <div class="post-module">
                         <!-- Thumbnail-->
                         <div class="thumbnail">
-                            <a tabindex="0" class="date" role="button" data-toggle="popover" data-trigger="body"
-                               data-content="<a href='/restaurant/edit?id=${restaurant.id}' class='btn btn-secondary btn-lg'>Edit</a> <br>
+                            <a tabindex="0" class="date" role="button" data-toggle="popover" data-trigger="body" onclick="getRestaurant(${restaurant.id})"
+                               data-content="<a href='#' data-toggle='modal' data-target='#restaurantEditModal' class='btn btn-secondary btn-lg'>Edit</a> <br>
                                                  <a href='/restaurant/delete?id=${restaurant.id}' class='btn btn-danger'>Delete</a>">
                                 <div class="day"><i class="fa fa-bars" aria-hidden="true"></i></div>
                             </a>
@@ -115,6 +117,21 @@
     </div>
 </footer>
 
+<!-- Restaurant Add -->
+<div class="modal fade" id="restaurantAddModal" tabindex="-1" role="dialog" aria-labelledby="restaurantAddModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <elem:addRestaurant/>
+    </div>
+</div>
+
+<!-- Restaurant Edit -->
+<div class="modal fade" id="restaurantEditModal" tabindex="-1" role="dialog" aria-labelledby="restaurantEditModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <elem:editRestaurant/>
+    </div>
+</div>
+
+
 <!-- Bootstrap core JavaScript -->
 <script src="../../../resources/vendor/jquery/jquery.min.js"></script>
 <script src="../../../resources/vendor/tether/tether.min.js"></script>
@@ -127,7 +144,7 @@
 <%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAZ-i7xPeqanrDkGPNvaTAi9Lnvv2C2g&sensor=false"></script>--%>
 
 <!-- Custom scripts for this template -->
-<script src="../../../resources/js/grayscale.min.js"></script>
+<script src="../../../resources/js/grayscale.js"></script>
 
 </body>
 
