@@ -11,40 +11,38 @@
                     <h1 class="panel-title">Restaurant</h1>
                 </div>
                 <div class="panel-body">
-                    <form class="form" role="form" id="form" method="post" action="/restaurant/edit" accept-charset="UTF-8">
-                        <input type="hidden" name="id"/>
+                    <form class="form" role="form" id="form" method="POST" action="/restaurant/edit" accept-charset="UTF-8">
+                        <input type="hidden" name="id" id="idEdit"/>
                     <%-- Name --%>
                         <div class="form-group">
-                            <input type="text" name="name" id="name" class="form-control input-sm" placeholder="Name" required pattern="^[a-zA-Z\s]{2,}$"
-                                   oninput="nameCheck()">
+                            <input type="text" name="name" id="nameEdit" class="form-control input-sm" placeholder="Name" required pattern="^[a-zA-Z\s]{2,}$">
                         </div>
                         <%-- Price --%>
                         <div class="form-group">
-                            <input type="number" name="price" id="price" class="form-control input-sm" placeholder="Restaurant price" step="0.01" required
-                                   oninput="priceCheck()">
+                            <input type="number" name="price" id="priceEdit" class="form-control input-sm" placeholder="Restaurant price" step="0.01" required>
                         </div>
                         <%-- ALELO --%>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input type="checkbox" name="alelo" class="form-check-input">
+                                <input type="checkbox" name="aleloAccepted" id="aleloAcceptedEdit" class="form-check-input" onclick="setAleloBox()">
                                 Accepts ALELO
                             </label>
                         </div>
                         <%-- Location --%>
                         <div class="form-group">
-                            <input type="text" name="location" id="location" class="form-control input-sm" placeholder="Location" required pattern="^[a-zA-Z\s]{2,}$">
+                            <input type="text" name="location" id="locationEdit" class="form-control input-sm" placeholder="Location" required pattern="^[a-zA-Z\s]{2,}$">
                         </div>
                         <%-- Description --%>
                         <div class="form-group">
-                            <label for="restaurantDescription">Resutaurant description</label>
-                            <textarea class="form-control" name="description" id="restaurantDescription" rows="3"></textarea>
+                            <label for="descriptionEdit">Resutaurant description</label>
+                            <textarea class="form-control" name="description" id="descriptionEdit" rows="3"></textarea>
                         </div>
                         <%-- Image --%>
                         <div class="form-group">
-                            <input type="url" name="image" id="image" class="form-control input-sm" placeholder="Image" required>
+                            <input type="url" name="image" id="imageEdit" class="form-control input-sm" placeholder="Image" required>
                         </div>
                         <%-- Submit --%>
-                        <input type="submit" id="submit-button" value="Submit" class="btn btn-info btn-block" disabled>
+                        <input type="submit" id="submit-button" value="Submit" class="btn btn-info btn-block">
 
                     </form>
                 </div>

@@ -67,8 +67,8 @@
                     <div class="post-module">
                         <!-- Thumbnail-->
                         <div class="thumbnail">
-                            <a tabindex="0" class="date" role="button" data-toggle="popover" data-trigger="body" onclick="getRestaurant(${restaurant.id})"
-                               data-content="<a href='#' data-toggle='modal' data-target='#restaurantEditModal' class='btn btn-secondary btn-lg'>Edit</a> <br>
+                            <a tabindex="0" class="date" role="button" data-toggle="popover" data-trigger="body"
+                               data-content="<a href='#' data-toggle='modal' data-target='#restaurantEditModal' onclick='getRestaurant(${restaurant.id})' class='btn btn-secondary btn-lg'>Edit</a> <br>
                                                  <a href='/restaurant/delete?id=${restaurant.id}' class='btn btn-danger'>Delete</a>">
                                 <div class="day"><i class="fa fa-bars" aria-hidden="true"></i></div>
                             </a>

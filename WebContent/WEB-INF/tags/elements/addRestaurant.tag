@@ -43,7 +43,7 @@
                             <input type="url" name="image" id="image" class="form-control input-sm" placeholder="Image" required>
                         </div>
                         <%-- Submit --%>
-                        <input type="submit" id="submit-button" value="Submit" class="btn btn-info btn-block" disabled>
+                        <input type="submit" id="submit-button" value="Submit" class="btn btn-info btn-block">
 
                     </form>
                 </div>

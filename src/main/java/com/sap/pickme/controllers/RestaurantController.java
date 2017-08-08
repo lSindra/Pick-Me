@@ -25,15 +25,10 @@ public class RestaurantController {
         return "restaurant/list";
     }
 
+    @ResponseBody
     @RequestMapping(value = "/get")
     public Restaurant getRestaurant(int id) {
         return restaurantService.getRestaurant(id);
-    }
-
-    @RequestMapping(value = "/add", method = RequestMethod.GET)
-    public String createRestaurantForm(Model model) {
-        model.addAttribute("restaurant", new Restaurant());
-        return "restaurant/add";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
@@ -54,20 +49,12 @@ public class RestaurantController {
         return "redirect:/restaurant/";
     }
 
-    @RequestMapping(value = "/edit", method = RequestMethod.GET)
-    public String editRestaurantForm(Model model, @RequestParam("id") int id) {
-        Restaurant restaurant = restaurantService.getRestaurant(id);
-        model.addAttribute("restaurant", restaurant);
-        return "restaurant/edit";
-    }
-
-    //    Saving edit-training
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
     public String editRestaurant(@Valid Restaurant restaurant, BindingResult bindingResult,
                                Model model, RedirectAttributes redirectAttributes, HttpServletRequest req) {
 
         if (bindingResult.hasErrors()) {
-            return "restaurant/edit";
+            return "restaurant/";
         }
         restaurantService.editTraining(restaurant);
         redirectAttributes.addFlashAttribute("success", true);
