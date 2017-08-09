@@ -1,15 +1,11 @@
 package com.sap.pickme.models;
 
-import org.hibernate.annotations.Type;
 import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.Set;
-
 
 @Entity
 @Table(name = "USER")
@@ -37,9 +33,6 @@ public class User {
     @Column(name = "DATE")
     @DateTimeFormat(pattern="MM/dd/yyyy")
     private String date;
-
-    @OneToMany(mappedBy="RESTAURANT")
-    private Set<Vote> votes;
 
 
     public int getId() {
@@ -80,13 +73,5 @@ public class User {
 
     public void setDate(String date) {
         this.date = date;
-    }
-
-    public Set<Vote> getVotes() {
-        return votes;
-    }
-
-    public void setVotes(Set<Vote> votes) {
-        this.votes = votes;
     }
 }

@@ -2,6 +2,7 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="elem" tagdir="/WEB-INF/tags/elements" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 
 
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -81,8 +82,8 @@
                             <h2 class="sub_title">R$: ${restaurant.price} <c:if test="${restaurant.aleloAccepted}"><img src="http://creditoedebito.com.br/wp-content/uploads/2011/12/alelo.jpg" class="img-responsive " height="25px" alt=""></c:if></h2>
                             <p class="description">${restaurant.description} <br> ${restaurant.location}</p>
                             <div class="post-meta">
-                                <span class="comments"><i class="fa fa-comments"></i><a href="#"> 0 Votes</a></span>
-                                <a class="btn btn-success btn-sm">Vote</a>
+                                <span class="comments"><i class="fa fa-comments"></i><a> 0 Votes</a></span>
+                                <a class="btn btn-success btn-sm" onclick="vote(${restaurant.id})">Vote</a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +102,7 @@
             <div class="col-lg-8 offset-md-2">
                 <h2>Most Voted</h2>
                 <p>This is the most voted restaurant.</p>
-                <a href="http://startbootstrap.com/template-overviews/grayscale/" class="btn btn-default btn-lg">Place Holder</a>
+                <a href="#" class="btn btn-default btn-lg">Place Holder</a>
             </div>
         </div>
     </div>
@@ -145,6 +146,8 @@
 
 <!-- Custom scripts for this template -->
 <script src="../../../resources/js/grayscale.js"></script>
+<script src="../../../resources/js/voteLogic.js"></script>
+
 
 </body>
 

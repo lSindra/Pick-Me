@@ -31,5 +31,15 @@
     <bean name="defaultUserService" class="com.sap.pickme.services.impl.DefaultUserService"/>
     <alias name="defaultUserService" alias="userService"/>
 
+    <!-- Vote Service -->
+    <bean name="defaultVoteService" class="com.sap.pickme.services.impl.DefaultVoteService"/>
+    <alias name="defaultVoteService" alias="voteService"/>
+
+    <!-- Vote Dao -->
+    <bean name="defaultVoteDao" class="com.sap.pickme.daos.impl.DefaultVoteDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <alias name="defaultVoteDao" alias="voteDao"/>
+
 
 </beans>

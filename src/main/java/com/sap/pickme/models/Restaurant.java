@@ -5,6 +5,7 @@ import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 import java.util.Set;
 
 
@@ -38,8 +39,6 @@ public class Restaurant {
     @Column(name = "IMAGE")
     private String image;
 
-    @OneToMany(mappedBy="RESTAURANT")
-    private Set<Vote> votes;
 
     public int getId() {
         return id;
@@ -89,13 +88,5 @@ public class Restaurant {
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public Set<Vote> getVotes() {
-        return votes;
-    }
-
-    public void setVotes(Set<Vote> votes) {
-        this.votes = votes;
     }
 }

@@ -60,9 +60,4 @@ public class RestaurantController {
         restaurantService.deleteRestaurant(id);
         return "redirect:/restaurant/";
     }
-
-    @RequestMapping(value = "/vote", method = RequestMethod.GET)
-    public String voteRestaurant(@RequestParam("id") int id) {
-        return "page";
-    }
 }

@@ -10,41 +10,50 @@ public class Vote {
     @Column(name = "ID", unique = true)
     private int id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="USER_ID", nullable=false)
-    private User user;
+    private int user_id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="RESTAURANT_ID", nullable=false)
-    private Restaurant restaurant;
+    private int restaurant_id;
 
-    public Vote() {}
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "POOL_ID", nullable = false)
+    private Pool pool;
 
 
     //Getters and Setters
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public int getId() {
-        return id;
-
-    }
+    public int getId() { return id; }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public Restaurant getRestaurant() {
-        return restaurant;
+    public int getUser_id() {
+        return user_id;
     }
 
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
+    public void setUser_id(int user_id) {
+        this.user_id = user_id;
     }
+
+    public int getRestaurant_id() {
+        return restaurant_id;
+    }
+
+    public void setRestaurant_id(int restaurant_id) {
+        this.restaurant_id = restaurant_id;
+    }
+
+    public Pool getPool() {
+        return pool;
+    }
+
+    public void setPool(Pool pool) {
+        this.pool = pool;
+    }
+
+
 }
