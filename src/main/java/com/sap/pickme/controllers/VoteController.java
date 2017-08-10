@@ -57,7 +57,7 @@ public class VoteController {
         Date time = Utils.getEndOfDay();
         Pool pool = poolService.getActivePool();
 
-        if(pool == null) {
+        if(pool == null || pool.getDate() != time) {
             return createPool();
         }
         return pool;
