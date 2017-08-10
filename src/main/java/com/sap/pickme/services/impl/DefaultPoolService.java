@@ -22,7 +22,7 @@ public class DefaultPoolService implements PoolService {
         Date time = Utils.getEndOfDay();
         Pool pool = poolDao.getActivePool();
 
-        if(pool == null || pool.getDate() != time) {
+        if(pool == null || pool.getDate().compareTo(time) > 10) {
             createPool();
             return poolDao.getActivePool();
         }
