@@ -1,8 +1,6 @@
 package com.sap.pickme.daos.impl;
 
-import com.sap.pickme.daos.UserDao;
 import com.sap.pickme.daos.VoteDao;
-import com.sap.pickme.models.User;
 import com.sap.pickme.models.Vote;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

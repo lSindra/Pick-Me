@@ -1,6 +1,5 @@
 package com.sap.pickme.controllers;
 
-import com.sap.pickme.models.Pool;
 import com.sap.pickme.models.Vote;
 import com.sap.pickme.services.RestaurantService;
 import com.sap.pickme.services.UserService;
@@ -9,7 +8,6 @@ import com.sap.pickme.services.VoteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
