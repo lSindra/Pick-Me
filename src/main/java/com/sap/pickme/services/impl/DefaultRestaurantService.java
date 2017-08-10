@@ -1,7 +1,9 @@
 package com.sap.pickme.services.impl;
 
 import com.sap.pickme.daos.RestaurantDao;
+import com.sap.pickme.daos.VoteDao;
 import com.sap.pickme.models.Restaurant;
+import com.sap.pickme.models.Vote;
 import com.sap.pickme.services.RestaurantService;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,6 +14,9 @@ public class DefaultRestaurantService implements RestaurantService {
 
     @Resource
     private RestaurantDao restaurantDao;
+
+    @Resource
+    private VoteDao voteDao;
 
     @Override
     public List<Restaurant> listRestaurant() {
@@ -27,6 +32,8 @@ public class DefaultRestaurantService implements RestaurantService {
     @Transactional
     @Override
     public void deleteRestaurant(int id) {
+        List<Vote> votes = voteDao.getVoteByRestaurant(getRestaurant(id));
+        voteDao.delete(votes);
         restaurantDao.deleteRestaurant(id);
     }
 

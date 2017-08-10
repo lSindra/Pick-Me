@@ -57,8 +57,10 @@
 <!-- About Section -->
 <section id="about" class="container content-section text-center">
 
-    <a class="nav-link" href="#" data-toggle="modal" data-target="#restaurantAddModal">New Restaurant</a>
-
+    <div class="row">
+        <a class="nav-link" href="#" data-toggle="modal" data-target="#restaurantAddModal">New Restaurant</a>
+        <a class="nav-link" href="#" data-toggle="modal" onclick="sortRestaurantList()">Sort</a>
+    </div>
     <div class="row">
         <c:forEach var="restaurant" items="${restaurants}">
 
@@ -82,7 +84,7 @@
                             <h2 class="sub_title">R$: ${restaurant.price} <c:if test="${restaurant.aleloAccepted}"><img src="http://creditoedebito.com.br/wp-content/uploads/2011/12/alelo.jpg" class="img-responsive " height="25px" alt=""></c:if></h2>
                             <p class="description">${restaurant.description} <br> ${restaurant.location}</p>
                             <div class="post-meta">
-                                <span class="comments"><i class="fa fa-comments"></i><a> 0 Votes</a></span>
+                                <span class="comments" id="voteCount-${restaurant.id}"></span>
                                 <a class="btn btn-success btn-sm" onclick="vote(${restaurant.id})">Vote</a>
                             </div>
                         </div>
@@ -147,6 +149,7 @@
 <!-- Custom scripts for this template -->
 <script src="../../../resources/js/grayscale.js"></script>
 <script src="../../../resources/js/voteLogic.js"></script>
+<script src="../../../resources/js/restaurantListSort.js"></script>
 
 
 </body>
