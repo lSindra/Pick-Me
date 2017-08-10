@@ -2,6 +2,7 @@ package com.sap.pickme.daos.impl;
 
 import com.sap.pickme.daos.PoolDao;
 import com.sap.pickme.models.Pool;
+import com.sap.pickme.models.Restaurant;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
@@ -11,6 +12,7 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 public class DefaultPoolDao extends HibernateDaoSupport implements PoolDao {
 
@@ -18,16 +20,16 @@ public class DefaultPoolDao extends HibernateDaoSupport implements PoolDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public Pool getActivePool(Date date) {
-        try(Session session = sessionFactory.openSession()){
-            DetachedCriteria criteria = DetachedCriteria.forClass(Pool.class);
-            criteria.add(Restrictions.like("DATE", date.toString(), MatchMode.EXACT));
-            if (criteria.getExecutableCriteria(session).uniqueResult() != null) {
-                return (Pool) (criteria.getExecutableCriteria(session).uniqueResult());
-            }
+    public Pool getActivePool() {
+        List<Pool> pools = (List<Pool>) getHibernateTemplate().find("from com.sap.pickme.models.Pool");
+        int size = pools.size();
+        if(size != 0) {
+            return pools.get(size - 1);
         }
         return null;
     }
+
+
 
     @Override
     public void createPool(Pool pool) {

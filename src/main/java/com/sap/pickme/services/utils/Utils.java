@@ -1,26 +1,22 @@
 package com.sap.pickme.services.utils;
 
-import java.net.InetAddress;
+import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 
 import org.apache.commons.lang.time.DateUtils;
-import org.apache.commons.net.ntp.NTPUDPClient;
-import org.apache.commons.net.ntp.TimeInfo;
 
 public class Utils {
 
-    public static Date getCurrentTime() throws Exception {
-        String TIME_SERVER = "time-a.nist.gov";
+    private final static String TIME_SERVER = "time-a.nist.gov";
 
-        NTPUDPClient timeClient = new NTPUDPClient();
-        InetAddress inetAddress = InetAddress.getByName(TIME_SERVER);
-        TimeInfo timeInfo = timeClient.getTime(inetAddress);
-        long returnTime = timeInfo.getReturnTime();
-        return new Date(returnTime);
+    public static Date getCurrentTime() {
+        return java.sql.Timestamp.valueOf(LocalDateTime.now());
     }
 
-    public static Date getEndOfDay() throws Exception {
-        return DateUtils.addMilliseconds(DateUtils.ceiling(getCurrentTime(), Calendar.DATE), -1);
+    public static Date getEndOfDay() {
+        Date time = getCurrentTime();
+        return DateUtils.addMilliseconds(DateUtils.ceiling(time, Calendar.DATE), -1000 );
     }
 }

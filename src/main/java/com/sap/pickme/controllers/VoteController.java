@@ -53,23 +53,24 @@ public class VoteController {
         return vote;
     }
 
-    private Pool getActivePool() throws Exception {
+    private Pool getActivePool() {
         Date time = Utils.getEndOfDay();
-        Pool pool = poolService.getActivePool(time);
+        Pool pool = poolService.getActivePool();
 
         if(pool == null) {
             return createPool();
         }
         return pool;
     }
-    private Pool createPool() throws Exception {
+    private Pool createPool() {
         Date time = Utils.getEndOfDay();
-        Pool pool = poolService.getActivePool(time);
+        Pool pool = new Pool();
 
         pool.setDate(time);
+        pool.setId(0);
         poolService.createPool(pool);
 
-        return poolService.getActivePool(time);
+        return poolService.getActivePool();
     }
 
 

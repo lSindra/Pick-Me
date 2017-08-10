@@ -17,8 +17,8 @@ public class DefaultPoolService implements PoolService {
     private PoolDao poolDao;
 
     @Override
-    public Pool getActivePool(Date date) {
-        return poolDao.getActivePool(date);
+    public Pool getActivePool() {
+        return poolDao.getActivePool();
     }
 
     @Transactional

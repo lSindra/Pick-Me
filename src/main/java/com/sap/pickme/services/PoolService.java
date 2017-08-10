@@ -6,7 +6,7 @@ import java.util.Date;
 
 public interface PoolService {
 
-    Pool getActivePool(Date date);
+    Pool getActivePool();
 
     void createPool(Pool pool);
 
