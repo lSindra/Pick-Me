@@ -1,6 +1,7 @@
 package com.sap.pickme.daos.impl;
 
 import com.sap.pickme.daos.VoteDao;
+import com.sap.pickme.models.User;
 import com.sap.pickme.models.Vote;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,6 +12,7 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.List;
 
 public class DefaultVoteDao extends HibernateDaoSupport implements VoteDao {
 
@@ -30,9 +32,22 @@ public class DefaultVoteDao extends HibernateDaoSupport implements VoteDao {
     }
 
     @Override
-    public void vote(Vote vote) {
-        if (getHibernateTemplate().get(Vote.class, vote.getUser().getId()) == null) {
-            getHibernateTemplate().save(vote);
+    public Vote getVote(Vote vote) {
+        List<Vote> result;
+        Session session = getSessionFactory().getCurrentSession();
+        result = (List<Vote>) session.createQuery("select v from Vote v where v.pool = :pool and v.user = :user")
+                .setParameter("pool", vote.getPool())
+                .setParameter("user", vote.getUser()).list();
+
+        if (!result.isEmpty()){
+            return result.get(0);
+        }else{
+            return null;
         }
+    }
+
+    @Override
+    public void vote(Vote vote) {
+        getHibernateTemplate().saveOrUpdate(vote);
     }
 }

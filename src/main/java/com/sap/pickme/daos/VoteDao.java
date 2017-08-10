@@ -8,5 +8,7 @@ public interface VoteDao {
 
     Vote getVoteByDate(Date date);
 
+    Vote getVote(Vote vote);
+
     void vote(Vote vote);
 }

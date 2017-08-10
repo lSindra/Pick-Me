@@ -22,6 +22,12 @@ public class DefaultVoteService implements VoteService {
     @Transactional
     @Override
     public void vote(Vote vote) {
-        voteDao.vote(vote);
+        if (voteDao.getVote(vote) != null) {
+            Vote currentVote = voteDao.getVote(vote);
+            currentVote.setRestaurant(vote.getRestaurant());
+            voteDao.vote(currentVote);
+        } else {
+            voteDao.vote(vote);
+        }
     }
 }
