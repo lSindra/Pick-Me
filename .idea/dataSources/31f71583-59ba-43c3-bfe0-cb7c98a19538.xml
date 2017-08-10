@@ -13,141 +13,142 @@
     <schema id="7" parent="1" name="sys"/>
     <schema id="8" parent="1" name="world"/>
     <table id="9" parent="2" name="hibernate_sequence"/>
-    <table id="10" parent="2" name="restaurant"/>
-    <table id="11" parent="2" name="user"/>
-    <table id="12" parent="2" name="vote"/>
-    <column id="13" parent="9" name="next_val">
+    <table id="10" parent="2" name="pool"/>
+    <table id="11" parent="2" name="restaurant"/>
+    <table id="12" parent="2" name="user"/>
+    <table id="13" parent="2" name="vote"/>
+    <column id="14" parent="9" name="next_val">
       <Position>1</Position>
       <DataType>bigint(20)|0</DataType>
     </column>
-    <column id="14" parent="10" name="ID">
+    <column id="15" parent="10" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="15" parent="10" name="ALELO">
+    <column id="16" parent="10" name="DATE">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <key id="17" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>ID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="18" parent="11" name="ID">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="19" parent="11" name="ALELO">
       <Position>2</Position>
       <DataType>bit(1)|0</DataType>
     </column>
-    <column id="16" parent="10" name="IMAGE">
+    <column id="20" parent="11" name="IMAGE">
       <Position>3</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="17" parent="10" name="LOCATION">
+    <column id="21" parent="11" name="LOCATION">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <column id="18" parent="10" name="NAME">
+    <column id="22" parent="11" name="NAME">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="19" parent="10" name="PRICE">
+    <column id="23" parent="11" name="PRICE">
       <Position>6</Position>
       <DataType>double|0</DataType>
     </column>
-    <column id="20" parent="10" name="DESCRIPTION">
+    <column id="24" parent="11" name="DESCRIPTION">
       <Position>7</Position>
       <DataType>varchar(255)|0</DataType>
     </column>
-    <key id="21" parent="10" name="PRIMARY">
+    <key id="25" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="22" parent="11" name="ID">
+    <column id="26" parent="12" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="23" parent="11" name="NAME">
+    <column id="27" parent="12" name="NAME">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="24" parent="11" name="DATE">
+    <column id="28" parent="12" name="DATE">
       <Position>3</Position>
       <DataType>date|0</DataType>
     </column>
-    <column id="25" parent="11" name="EMAIL">
+    <column id="29" parent="12" name="EMAIL">
       <Position>4</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="26" parent="11" name="PASSWORD">
+    <column id="30" parent="12" name="PASSWORD">
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="27" parent="11" name="PRIMARY">
+    <key id="31" parent="12" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="28" parent="12" name="ID">
+    <column id="32" parent="13" name="ID">
       <Position>1</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="29" parent="12" name="RESTAURANT_ID">
+    <column id="33" parent="13" name="RESTAURANT_ID">
       <Position>2</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="30" parent="12" name="USER_ID">
+    <column id="34" parent="13" name="USER_ID">
       <Position>3</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="31" parent="12" name="RESTAURANT_votes">
+    <column id="35" parent="13" name="POOL_ID">
       <Position>4</Position>
       <DataType>int(11)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="32" parent="12" name="USER_votes">
-      <Position>5</Position>
-      <DataType>int(11)|0</DataType>
-      <NotNull>1</NotNull>
-    </column>
-    <index id="33" parent="12" name="FK66hxdo1wtxjbtaddxya5uu76">
+    <index id="36" parent="13" name="FK66hxdo1wtxjbtaddxya5uu76">
       <ColNames>USER_ID</ColNames>
     </index>
-    <index id="34" parent="12" name="FKl89h5g3w1u453iilbmdjpwqdb">
+    <index id="37" parent="13" name="FKl89h5g3w1u453iilbmdjpwqdb">
       <ColNames>RESTAURANT_ID</ColNames>
     </index>
-    <index id="35" parent="12" name="FK83psx66som5khe5xhkp75rtto">
-      <ColNames>USER_votes</ColNames>
+    <index id="38" parent="13" name="FKkphls4p10o6nq1i3uf58indqj">
+      <ColNames>POOL_ID</ColNames>
     </index>
-    <index id="36" parent="12" name="FKpfocoenw8iwidm6q7nx0ldwh3">
-      <ColNames>RESTAURANT_votes</ColNames>
-    </index>
-    <key id="37" parent="12" name="PRIMARY">
+    <key id="39" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="38" parent="12" name="FKl89h5g3w1u453iilbmdjpwqdb">
+    <foreign-key id="40" parent="13" name="FKl89h5g3w1u453iilbmdjpwqdb">
       <ColNames>RESTAURANT_ID</ColNames>
       <RefSchemaName>pickme</RefSchemaName>
       <RefTableName>restaurant</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="39" parent="12" name="FK66hxdo1wtxjbtaddxya5uu76">
+    <foreign-key id="41" parent="13" name="FK66hxdo1wtxjbtaddxya5uu76">
       <ColNames>USER_ID</ColNames>
       <RefSchemaName>pickme</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="40" parent="12" name="FKpfocoenw8iwidm6q7nx0ldwh3">
-      <ColNames>RESTAURANT_votes</ColNames>
+    <foreign-key id="42" parent="13" name="FKkphls4p10o6nq1i3uf58indqj">
+      <ColNames>POOL_ID</ColNames>
       <RefSchemaName>pickme</RefSchemaName>
-      <RefTableName>restaurant</RefTableName>
-      <RefColNames>ID</RefColNames>
-    </foreign-key>
-    <foreign-key id="41" parent="12" name="FK83psx66som5khe5xhkp75rtto">
-      <ColNames>USER_votes</ColNames>
-      <RefSchemaName>pickme</RefSchemaName>
-      <RefTableName>user</RefTableName>
+      <RefTableName>pool</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
   </database-model>

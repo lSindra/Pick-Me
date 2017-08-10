@@ -1,12 +1,9 @@
 
 
 
-function vote(Restaurant_id) {
+function vote(restaurant_id) {
     $.post({
         url: "/vote/vote",
-        Restaurant_ID: Restaurant_id
-    },
-    function (data, status) {
-        alert("Data: " + data + "\nStatus: " + status);
+        data: {restaurant_id: restaurant_id}
     });
 }

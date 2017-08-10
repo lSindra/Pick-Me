@@ -12,14 +12,14 @@ public class Vote {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="USER_ID", nullable=false)
-    private int user_id;
+    private User user;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="RESTAURANT_ID", nullable=false)
-    private int restaurant_id;
+    private Restaurant restaurant;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "POOL_ID", nullable = false)
+    @JoinColumn(name = "POOL_ID")
     private Pool pool;
 
 
@@ -31,20 +31,20 @@ public class Vote {
         this.id = id;
     }
 
-    public int getUser_id() {
-        return user_id;
+    public User getUser() {
+        return user;
     }
 
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public int getRestaurant_id() {
-        return restaurant_id;
+    public Restaurant getRestaurant() {
+        return restaurant;
     }
 
-    public void setRestaurant_id(int restaurant_id) {
-        this.restaurant_id = restaurant_id;
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 
     public Pool getPool() {

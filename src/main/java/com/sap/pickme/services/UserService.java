@@ -4,6 +4,8 @@ import com.sap.pickme.models.User;
 
 public interface UserService {
 
+    User getUser (int id);
+
     User getUserByEmail (String email);
 
     void registerUser (User user);

@@ -16,6 +16,11 @@ public class DefaultUserService implements UserService {
     @Resource
     private BCryptPasswordEncoder passwordEncoder;
 
+    @Override
+    public User getUser(int id) {
+        return userDao.getUser(id);
+    }
+
     @Transactional
     @Override
     public User getUserByEmail(String email) {
