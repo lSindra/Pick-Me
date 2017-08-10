@@ -10,6 +10,7 @@ function getRestaurantVotes(restaurant) {
         }
     });
 }
+
 function sortRestaurantList() {
     $.ajax({
         url: "/restaurant/list",
@@ -20,4 +21,6 @@ function sortRestaurantList() {
         }
     });
 }
+
+window.onload = sortRestaurantList();
 
