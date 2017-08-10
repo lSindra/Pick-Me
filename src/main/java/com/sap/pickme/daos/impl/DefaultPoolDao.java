@@ -3,6 +3,7 @@ package com.sap.pickme.daos.impl;
 import com.sap.pickme.daos.PoolDao;
 import com.sap.pickme.models.Pool;
 import com.sap.pickme.models.Restaurant;
+import com.sap.pickme.services.utils.Utils;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
@@ -28,8 +29,6 @@ public class DefaultPoolDao extends HibernateDaoSupport implements PoolDao {
         }
         return null;
     }
-
-
 
     @Override
     public void createPool(Pool pool) {

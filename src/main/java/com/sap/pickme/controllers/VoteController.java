@@ -43,7 +43,7 @@ public class VoteController {
         try {
             vote.setRestaurant(restaurantService.getRestaurant(restaurant_id));
             vote.setUser(userService.getUser(user_ID));
-            vote.setPool(getActivePool());
+            vote.setPool(poolService.getActivePool());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -52,28 +52,6 @@ public class VoteController {
 
         return vote;
     }
-
-    private Pool getActivePool() {
-        Date time = Utils.getEndOfDay();
-        Pool pool = poolService.getActivePool();
-
-        if(pool == null || pool.getDate() != time) {
-            return createPool();
-        }
-        return pool;
-    }
-    private Pool createPool() {
-        Date time = Utils.getEndOfDay();
-        Pool pool = new Pool();
-
-        pool.setDate(time);
-        pool.setId(0);
-        poolService.createPool(pool);
-
-        return poolService.getActivePool();
-    }
-
-
 
 
 }

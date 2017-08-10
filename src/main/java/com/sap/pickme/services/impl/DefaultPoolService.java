@@ -6,6 +6,7 @@ import com.sap.pickme.models.Pool;
 import com.sap.pickme.models.Vote;
 import com.sap.pickme.services.PoolService;
 import com.sap.pickme.services.VoteService;
+import com.sap.pickme.services.utils.Utils;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
@@ -18,13 +19,23 @@ public class DefaultPoolService implements PoolService {
 
     @Override
     public Pool getActivePool() {
-        return poolDao.getActivePool();
+        Date time = Utils.getEndOfDay();
+        Pool pool = poolDao.getActivePool();
+
+        if(pool == null || pool.getDate() != time) {
+            createPool();
+            return poolDao.getActivePool();
+        }
+        return pool;
     }
 
     @Transactional
     @Override
-    public void createPool(Pool pool) {
+    public void createPool() {
+        Date time = Utils.getEndOfDay();
+        Pool pool = new Pool();
+
+        pool.setDate(time);
         poolDao.createPool(pool);
     }
-
 }

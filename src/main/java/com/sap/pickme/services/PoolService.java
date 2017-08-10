@@ -8,6 +8,6 @@ public interface PoolService {
 
     Pool getActivePool();
 
-    void createPool(Pool pool);
+    void createPool();
 
 }
