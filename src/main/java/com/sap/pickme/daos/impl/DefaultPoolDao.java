@@ -10,6 +10,7 @@ import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.Date;
@@ -30,6 +31,7 @@ public class DefaultPoolDao extends HibernateDaoSupport implements PoolDao {
         return null;
     }
 
+    @Transactional
     @Override
     public void createPool(Pool pool) {
         getHibernateTemplate().save(pool);

@@ -35,6 +35,7 @@ public class DefaultPoolService implements PoolService {
         Date time = Utils.getEndOfDay();
         Pool pool = new Pool();
 
+        pool.setId(0);
         pool.setDate(time);
         poolDao.createPool(pool);
     }

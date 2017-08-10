@@ -21,6 +21,7 @@ public class DefaultVoteService implements VoteService {
 
     @Transactional
     @Override
-    public void vote(Vote vote) { voteDao.vote(vote); }
-
+    public void vote(Vote vote) {
+        voteDao.vote(vote);
+    }
 }

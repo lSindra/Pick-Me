@@ -31,6 +31,8 @@ public class DefaultVoteDao extends HibernateDaoSupport implements VoteDao {
 
     @Override
     public void vote(Vote vote) {
-        getHibernateTemplate().save(vote);
+        if (getHibernateTemplate().get(Vote.class, vote.getUser().getId()) == null) {
+            getHibernateTemplate().save(vote);
+        }
     }
 }
