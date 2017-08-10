@@ -30,8 +30,8 @@ public class DefaultUserDao extends HibernateDaoSupport implements UserDao {
             if (criteria.getExecutableCriteria(session).uniqueResult() != null) {
                 return (User) (criteria.getExecutableCriteria(session).uniqueResult());
             }
-            return null;
         }
+        return null;
     }
 
     @Override

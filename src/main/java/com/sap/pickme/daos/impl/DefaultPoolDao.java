@@ -1,7 +1,7 @@
 package com.sap.pickme.daos.impl;
 
-import com.sap.pickme.daos.VoteDao;
-import com.sap.pickme.models.Vote;
+import com.sap.pickme.daos.PoolDao;
+import com.sap.pickme.models.Pool;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
@@ -12,25 +12,25 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import javax.annotation.Resource;
 import java.util.Date;
 
-public class DefaultVoteDao extends HibernateDaoSupport implements VoteDao {
+public class DefaultPoolDao extends HibernateDaoSupport implements PoolDao {
 
     @Resource
     private SessionFactory sessionFactory;
 
     @Override
-    public Vote getVoteByDate(Date date) {
+    public Pool getActivePool(Date date) {
         try(Session session = sessionFactory.openSession()){
-            DetachedCriteria criteria = DetachedCriteria.forClass(Vote.class);
-            criteria.add(Restrictions.like("date", date.toString(), MatchMode.EXACT));
+            DetachedCriteria criteria = DetachedCriteria.forClass(Pool.class);
+            criteria.add(Restrictions.like("DATE", date.toString(), MatchMode.EXACT));
             if (criteria.getExecutableCriteria(session).uniqueResult() != null) {
-                return (Vote) (criteria.getExecutableCriteria(session).uniqueResult());
+                return (Pool) (criteria.getExecutableCriteria(session).uniqueResult());
             }
         }
         return null;
     }
 
     @Override
-    public void vote(Vote vote) {
-        getHibernateTemplate().save(vote);
+    public void createPool(Pool pool) {
+        getHibernateTemplate().save(pool);
     }
 }

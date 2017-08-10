@@ -1,7 +1,10 @@
 package com.sap.pickme.services.utils;
 
 import java.net.InetAddress;
+import java.util.Calendar;
 import java.util.Date;
+
+import org.apache.commons.lang.time.DateUtils;
 import org.apache.commons.net.ntp.NTPUDPClient;
 import org.apache.commons.net.ntp.TimeInfo;
 
@@ -15,5 +18,9 @@ public class Utils {
         TimeInfo timeInfo = timeClient.getTime(inetAddress);
         long returnTime = timeInfo.getReturnTime();
         return new Date(returnTime);
+    }
+
+    public static Date getEndOfDay() throws Exception {
+        return DateUtils.addMilliseconds(DateUtils.ceiling(getCurrentTime(), Calendar.DATE), -1);
     }
 }

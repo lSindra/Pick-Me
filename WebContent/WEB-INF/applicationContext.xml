@@ -41,5 +41,15 @@
     </bean>
     <alias name="defaultVoteDao" alias="voteDao"/>
 
+    <!-- Pool Service -->
+    <bean name="defaultPoolService" class="com.sap.pickme.services.impl.DefaultPoolService"/>
+    <alias name="defaultPoolService" alias="poolService"/>
+
+    <!-- Pool Dao -->
+    <bean name="defaultPoolDao" class="com.sap.pickme.daos.impl.DefaultPoolDao">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <alias name="defaultPoolDao" alias="poolDao"/>
+
 
 </beans>
