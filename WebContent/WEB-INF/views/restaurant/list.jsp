@@ -59,7 +59,7 @@
 
     <div class="row">
         <a class="nav-link" href="#" data-toggle="modal" data-target="#restaurantAddModal">New Restaurant</a>
-        <a class="nav-link" href="#" data-toggle="modal" onclick="sortRestaurantList()">Sort</a>
+        <a class="nav-link" role="button" onClick="window.location.reload()">Sort</a>
     </div>
     <div class="row">
         <c:forEach var="restaurant" items="${restaurants}">
