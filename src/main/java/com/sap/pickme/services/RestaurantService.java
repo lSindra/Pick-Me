@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface RestaurantService {
 
-    List<Restaurant> listRestaurant ();
+    List<Restaurant> listSortedRestaurant();
 
     void addRestaurant (Restaurant restaurant);
 

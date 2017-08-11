@@ -1,8 +1,11 @@
 package com.sap.pickme.services.impl;
 
 import com.sap.pickme.daos.UserDao;
+import com.sap.pickme.models.Restaurant;
 import com.sap.pickme.models.User;
+import com.sap.pickme.services.RestaurantService;
 import com.sap.pickme.services.UserService;
+import com.sap.pickme.services.VoteService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +17,15 @@ public class DefaultUserService implements UserService {
     private UserDao userDao;
 
     @Resource
+    private VoteService voteService;
+
+    @Resource
     private BCryptPasswordEncoder passwordEncoder;
+
+    @Override
+    public User getUser(int id) {
+        return userDao.getUser(id);
+    }
 
     @Transactional
     @Override
@@ -33,4 +44,5 @@ public class DefaultUserService implements UserService {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         return user;
     }
+
 }

@@ -18,6 +18,11 @@ public class DefaultUserDao extends HibernateDaoSupport implements UserDao {
     private SessionFactory sessionFactory;
 
     @Override
+    public User getUser(int id) {
+        return getHibernateTemplate().get(User.class, id);
+    }
+
+    @Override
     public User getUserByEmail(String email) {
         try(Session session = sessionFactory.openSession()){
             DetachedCriteria criteria = DetachedCriteria.forClass(User.class);
@@ -25,8 +30,8 @@ public class DefaultUserDao extends HibernateDaoSupport implements UserDao {
             if (criteria.getExecutableCriteria(session).uniqueResult() != null) {
                 return (User) (criteria.getExecutableCriteria(session).uniqueResult());
             }
-            return null;
         }
+        return null;
     }
 
     @Override

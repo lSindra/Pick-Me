@@ -5,6 +5,7 @@ import com.sap.pickme.models.Restaurant;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -18,6 +19,7 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
         this.sessionFactory = sessionFactory;
     }
 
+    @Transactional
     @Override
     public List<Restaurant> listRestaurants() {
         return (List<Restaurant>) getHibernateTemplate()
@@ -31,9 +33,11 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
 
     @Override
     public void addRestaurant(Restaurant restaurant) {
+        restaurant.setVotes(0);
         getHibernateTemplate().save(restaurant);
     }
 
+    @Transactional
     @Override
     public void deleteRestaurant(int id) {
         Restaurant restaurant = new Restaurant();
@@ -42,6 +46,7 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
         getHibernateTemplate().delete(restaurant);
     }
 
+    @Transactional
     @Override
     public void editRestaurant(Restaurant restaurant) {
         getHibernateTemplate().update(restaurant);

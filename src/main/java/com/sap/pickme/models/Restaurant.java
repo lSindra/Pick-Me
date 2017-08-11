@@ -5,6 +5,8 @@ import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
+import java.util.List;
+import java.util.Set;
 
 
 @Entity
@@ -36,6 +38,9 @@ public class Restaurant {
     @URL
     @Column(name = "IMAGE")
     private String image;
+
+    @Transient
+    private int votes;
 
 
     public int getId() {
@@ -70,7 +75,7 @@ public class Restaurant {
         return aleloAccepted;
     }
 
-    public void setIsAleloAccepted(boolean aleloAccepted) {
+    public void setAleloAccepted(boolean aleloAccepted) {
         this.aleloAccepted = aleloAccepted;
     }
 
@@ -86,5 +91,13 @@ public class Restaurant {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public int getVotes() {
+        return votes;
+    }
+
+    public void setVotes(int votes) {
+        this.votes = votes;
     }
 }
