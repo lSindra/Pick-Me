@@ -85,7 +85,7 @@
                             <p class="description">${restaurant.description} <br> ${restaurant.location}</p>
                             <div class="post-meta">
                                 <span class="comments" id="voteCount-${restaurant.id}"></span>
-                                <a class="btn btn-success btn-sm" onclick="vote(${restaurant.id})">Vote</a>
+                                <a class="btn btn-default btn-sm" role="button" onclick="vote(${restaurant.id})">Vote</a>
                             </div>
                         </div>
                     </div>

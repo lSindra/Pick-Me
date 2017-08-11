@@ -1,6 +1,8 @@
+function displayRestaurants() {
+    
+}
 
-
-function getRestaurantVotes(restaurant) {
+function getAndDisplayRestaurantVotes(restaurant) {
     $.ajax({
         url : "/restaurant/restaurant-count",
         type: "POST",
@@ -16,7 +18,7 @@ function sortRestaurantList() {
         url: "/restaurant/list",
         success: function (response) {
             for (var i in response) {
-                getRestaurantVotes(response[i])
+                getAndDisplayRestaurantVotes(response[i])
             }
         }
     });

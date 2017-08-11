@@ -33,6 +33,7 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
 
     @Override
     public void addRestaurant(Restaurant restaurant) {
+        restaurant.setVotes(0);
         getHibernateTemplate().save(restaurant);
     }
 

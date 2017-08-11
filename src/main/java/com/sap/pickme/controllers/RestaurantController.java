@@ -3,6 +3,7 @@ package com.sap.pickme.controllers;
 import com.sap.pickme.models.Restaurant;
 import com.sap.pickme.services.RestaurantService;
 import com.sap.pickme.services.VoteService;
+import javafx.util.Pair;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -26,14 +27,14 @@ public class RestaurantController {
 
     @RequestMapping(value = "/")
     public String start(Model model){
-        model.addAttribute("restaurants", restaurantService.listRestaurant());
+        model.addAttribute("restaurants", getRestaurantsSortedList());
         return "restaurant/list";
     }
 
     @ResponseBody
     @RequestMapping(value = "/list")
-    public List<Restaurant> getRestaurant() {
-        return restaurantService.listRestaurant();
+    public List<Restaurant> getRestaurantsSortedList() {
+        return restaurantService.listSortedRestaurant();
     }
 
     @ResponseBody
@@ -45,7 +46,9 @@ public class RestaurantController {
     @ResponseBody
     @RequestMapping(value = "/restaurant-count", method = RequestMethod.POST)
     public int getRestaurantVoteCount(Restaurant restaurant) {
-        return voteService.countNumberOfVotes(restaurant); }
+        return voteService.countNumberOfVotes(restaurant);
+    }
+
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String createRestaurant( @Valid Restaurant restaurant, BindingResult bindingResult,
