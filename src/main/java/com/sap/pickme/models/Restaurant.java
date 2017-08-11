@@ -42,6 +42,10 @@ public class Restaurant {
     @Transient
     private int votes;
 
+//    TODO
+//    @OneToMany
+//    private List<Vote> voteList;
+
 
     public int getId() {
         return id;

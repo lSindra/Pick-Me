@@ -34,6 +34,10 @@ public class User {
     @DateTimeFormat(pattern="MM/dd/yyyy")
     private String date;
 
+//    TODO
+//    @OneToMany
+//    private List<Vote> voteList;
+
 
     public int getId() {
         return id;

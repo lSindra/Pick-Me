@@ -175,3 +175,8 @@
 .container .info span .fa {
     color: #f2b202;
 }
+
+.comments {
+    font-size: 1.3rem;
+    color: black;
+}

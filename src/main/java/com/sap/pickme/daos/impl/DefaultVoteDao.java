@@ -97,14 +97,11 @@ public class DefaultVoteDao extends HibernateDaoSupport implements VoteDao {
         getHibernateTemplate().saveOrUpdate(vote);
     }
 
-    @Transactional
     @Override
     public void delete(List<Vote> votes) {
-        Session session = getSessionFactory().getCurrentSession();
         for (Vote vote : votes) {
-            session.remove(vote);
+            getHibernateTemplate().delete(vote);
         }
-        session.flush();
     }
 
 }

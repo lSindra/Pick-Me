@@ -18,6 +18,11 @@ public class Pool {
     @Column(name = "DATE")
     private Date date;
 
+//    TODO
+//    @OneToMany
+//    private List<Vote> voteList;
+
+
     public int getId() {
         return id;
     }
