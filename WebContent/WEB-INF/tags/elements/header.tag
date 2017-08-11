@@ -21,6 +21,9 @@
     <!-- Custom styles for this template -->
     <link href="../../../resources/css/grayscale.css" rel="stylesheet">
 
+    <link href="../../../resources/css/cards.css" rel="stylesheet">
+
+
     <!-- Temporary navbar container fix -->
     <style>
         .navbar-toggler {

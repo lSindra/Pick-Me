@@ -39,7 +39,7 @@ public class Restaurant {
     @Column(name = "IMAGE")
     private String image;
 
-    @Column(name = "VOTES")
+    @Transient
     private int votes;
 
 

@@ -1,5 +1,7 @@
 package com.sap.pickme.controllers;
 
+import com.sap.pickme.models.Restaurant;
+import com.sap.pickme.models.User;
 import com.sap.pickme.models.Vote;
 import com.sap.pickme.services.PoolService;
 import com.sap.pickme.services.RestaurantService;
@@ -50,5 +52,11 @@ public class VoteController {
         return vote;
     }
 
+    @ResponseBody
+    @RequestMapping(value = "/voted-restaurant", method = RequestMethod.POST)
+    public Restaurant getVotedRestaurant(Principal principal) {
+        User user = userService.getUserByEmail(principal.getName());
+        return voteService.getVotedRestaurant(user);
+    }
 
 }

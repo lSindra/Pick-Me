@@ -54,6 +54,7 @@
     </div>
 </header>
 
+
 <!-- About Section -->
 <section id="about" class="container content-section text-center">
 
@@ -78,7 +79,7 @@
                             <img src="${restaurant.image}" class="img-responsive" alt="">
                         </div>
                         <!-- Post Content-->
-                        <div class="post-content">
+                        <div class="post-content" id="post-content-${restaurant.id}">
                             <div class="category">Pizza</div>
                             <h1 class="title">${restaurant.name}</h1>
                             <h2 class="sub_title">R$: ${restaurant.price} <c:if test="${restaurant.aleloAccepted}"><img src="http://creditoedebito.com.br/wp-content/uploads/2011/12/alelo.jpg" class="img-responsive " height="25px" alt=""></c:if></h2>

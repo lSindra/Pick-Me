@@ -1,6 +1,3 @@
-function displayRestaurants() {
-    
-}
 
 function getAndDisplayRestaurantVotes(restaurant) {
     $.ajax({
@@ -9,6 +6,8 @@ function getAndDisplayRestaurantVotes(restaurant) {
         data: restaurant,
         success : function(votes) {
             document.getElementById("voteCount-"+restaurant.id).innerHTML = votes;
+            document.getElementById("post-content-"+restaurant.id).style.backgroundColor = "#fcfcfc";
+            highlightVotedRestaurant();
         }
     });
 }
@@ -24,5 +23,15 @@ function sortRestaurantList() {
     });
 }
 
-window.onload = sortRestaurantList();
+function highlightVotedRestaurant() {
+    $.post({
+        url: "/vote/voted-restaurant",
+        success: function (response) {
+            document.getElementById("post-content-"+response.id).style.backgroundColor = "#4dbcff";
+        }
+    });
+}
+
+
+window.onload = sortRestaurantList(); highlightVotedRestaurant();
 

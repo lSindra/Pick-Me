@@ -35,7 +35,7 @@ public class DefaultRestaurantService implements RestaurantService {
     }
 
     private List<Restaurant> sortRestaurantList(List<Restaurant> unsortedList) {
-        unsortedList.sort(Comparator.comparing(Restaurant::getVotes).thenComparing(Restaurant::getName, Comparator.reverseOrder()).reversed());
+        unsortedList.sort(Comparator.comparing(Restaurant::getVotes, Comparator.reverseOrder()).thenComparing(Restaurant::getName));
         return unsortedList;
     }
 

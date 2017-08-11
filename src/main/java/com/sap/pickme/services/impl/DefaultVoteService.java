@@ -2,6 +2,7 @@ package com.sap.pickme.services.impl;
 
 import com.sap.pickme.daos.VoteDao;
 import com.sap.pickme.models.Restaurant;
+import com.sap.pickme.models.User;
 import com.sap.pickme.models.Vote;
 import com.sap.pickme.services.PoolService;
 import com.sap.pickme.services.VoteService;
@@ -43,5 +44,11 @@ public class DefaultVoteService implements VoteService {
         } else {
             voteDao.vote(vote);
         }
+    }
+
+    @Transactional
+    @Override
+    public Restaurant getVotedRestaurant(User user) {
+        return voteDao.getRestaurantByUserAndPool(user, poolService.getActivePool());
     }
 }

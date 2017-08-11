@@ -35,6 +35,21 @@ public class DefaultVoteDao extends HibernateDaoSupport implements VoteDao {
     }
 
     @Override
+    public Restaurant getRestaurantByUserAndPool(User user, Pool pool) {
+        List<Vote> result;
+        Session session = getSessionFactory().getCurrentSession();
+        result = (List<Vote>) session.createQuery("select v from Vote v where v.pool = :pool and v.user = :user")
+                .setParameter("pool", pool)
+                .setParameter("user", user).list();
+
+        if (!result.isEmpty()){
+             return result.get(0).getRestaurant();
+        }else{
+            return null;
+        }
+    }
+
+    @Override
     public Vote getVote(Vote vote) {
         List<Vote> result;
         Session session = getSessionFactory().getCurrentSession();
