@@ -5,6 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "POOL")
@@ -18,10 +19,7 @@ public class Pool {
     @Column(name = "DATE")
     private Date date;
 
-//    TODO
-//    @OneToMany
-//    private List<Vote> voteList;
-
+    //TODO
 
     public int getId() {
         return id;

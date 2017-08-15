@@ -27,14 +27,15 @@ public class RestaurantController {
 
     @RequestMapping(value = "/")
     public String start(Model model){
-        model.addAttribute("restaurants", getRestaurantsSortedList());
+        model.addAttribute("restaurants", restaurantService.listSortedRestaurant());
         return "restaurant/list";
     }
 
-    @ResponseBody
+
     @RequestMapping(value = "/list")
-    public List<Restaurant> getRestaurantsSortedList() {
-        return restaurantService.listSortedRestaurant();
+    public String getRestaurantsSortedList(Model model) {
+        model.addAttribute("restaurants", restaurantService.listSortedRestaurant());
+        return "restaurant/card-section";
     }
 
     @ResponseBody

@@ -23,12 +23,10 @@ public class DefaultPoolDao extends HibernateDaoSupport implements PoolDao {
 
     @Override
     public Pool getActivePool() {
-        List<Pool> pools = (List<Pool>) getHibernateTemplate().find("from com.sap.pickme.models.Pool");
-        int size = pools.size();
-        if(size != 0) {
-            return pools.get(size - 1);
+        try (Session session = sessionFactory.openSession()) {
+            return (Pool) session.createQuery("from Pool ORDER BY id DESC")
+                    .setMaxResults(1).uniqueResult();
         }
-        return null;
     }
 
     @Transactional

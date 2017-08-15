@@ -6,6 +6,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 @Table(name = "USER")
@@ -34,10 +35,7 @@ public class User {
     @DateTimeFormat(pattern="MM/dd/yyyy")
     private String date;
 
-//    TODO
-//    @OneToMany
-//    private List<Vote> voteList;
-
+    //TODO
 
     public int getId() {
         return id;

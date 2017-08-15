@@ -58,44 +58,11 @@
 <!-- About Section -->
 <section id="about" class="container content-section text-center">
 
-    <div class="row">
-        <a class="nav-link" href="#" data-toggle="modal" data-target="#restaurantAddModal">New Restaurant</a>
-        <a class="nav-link" role="button" onClick="window.location.reload()">Sort</a>
-    </div>
-    <div class="row">
-        <c:forEach var="restaurant" items="${restaurants}">
+    <%--Card-section--%>
+        <div id="card-row" class="row">
 
-            <div class="col-md-4">
-                <div class="column">
-                    <!-- Post-->
-                    <div class="post-module">
-                        <!-- Thumbnail-->
-                        <div class="thumbnail">
-                            <a tabindex="0" class="date" role="button" data-toggle="popover" data-trigger="body"
-                               data-content="<a href='#' data-toggle='modal' data-target='#restaurantEditModal' onclick='getRestaurant(${restaurant.id})' class='btn btn-secondary btn-lg'>Edit</a> <br>
-                                                 <a href='/restaurant/delete?id=${restaurant.id}' class='btn btn-danger'>Delete</a>">
-                                <div class="day"><i class="fa fa-bars" aria-hidden="true"></i></div>
-                            </a>
-                            <img src="${restaurant.image}" class="img-responsive" alt="">
-                        </div>
-                        <!-- Post Content-->
-                        <div class="post-content" id="post-content-${restaurant.id}">
-                            <div class="category">Pizza</div>
-                            <h1 class="title">${restaurant.name}</h1>
-                            <h2 class="sub_title">R$: ${restaurant.price} <c:if test="${restaurant.aleloAccepted}"><img src="http://creditoedebito.com.br/wp-content/uploads/2011/12/alelo.jpg" class="img-responsive " height="25px" alt=""></c:if></h2>
-                            <p class="description">${restaurant.description} <br> ${restaurant.location}</p>
-                            <div class="post-meta">
-                                <span class="comments" id="voteCount-${restaurant.id}"></span>
-                                <a class="btn btn-default btn-sm" role="button" onclick="vote(${restaurant.id})">Vote</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        </div>
 
-        </c:forEach>
-
-    </div>
 </section>
 
 <!-- Download Section -->
