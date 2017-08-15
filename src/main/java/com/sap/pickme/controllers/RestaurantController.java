@@ -31,11 +31,16 @@ public class RestaurantController {
         return "restaurant/list";
     }
 
-
     @RequestMapping(value = "/list")
     public String getRestaurantsSortedList(Model model) {
         model.addAttribute("restaurants", restaurantService.listSortedRestaurant());
         return "restaurant/card-section";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/list-sorted-restaurants")
+    public List<Restaurant> getRestaurantsSortedList() {
+        return restaurantService.listSortedRestaurant();
     }
 
     @ResponseBody

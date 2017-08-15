@@ -4,7 +4,7 @@
 
 
 
-<div class="col-md-4">
+<div class="col-md-4" id="card">
     <div class="column">
         <!-- Post-->
         <div class="post-module">

@@ -8,7 +8,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 <!-- CSS -->
-<link href="../../../resources/css/cards.css" rel="stylesheet">
+
 
 <!DOCTYPE html>
 <html lang="en">

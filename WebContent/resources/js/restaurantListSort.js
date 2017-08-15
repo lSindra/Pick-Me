@@ -4,7 +4,9 @@ function initOrRefreshCards() {
     $.ajax({
         url: "/restaurant/list",
         success: function (result) {
+            $("#card-row").html("");
             $("#card-row").append(result);
+            sortRestaurantList();
         }
     });
 }
@@ -15,7 +17,6 @@ function getAndDisplayRestaurantVotes(restaurant) {
         type: "POST",
         data: restaurant,
         success : function(votes) {
-            document.getElementById("card-row").insertAdjacentHTML("beforeend", card);
             document.getElementById("voteCount-"+restaurant.id).innerHTML = votes;
             document.getElementById("post-content-"+restaurant.id).style.backgroundColor = "#fcfcfc";
         }
@@ -25,7 +26,7 @@ function getAndDisplayRestaurantVotes(restaurant) {
 
 function getRestaurantList() {
     $.ajax({
-        url: "/restaurant/",
+        url: "/restaurant/list-sorted-restaurants",
         success: function (result) {
             restaurantList = result;
         }
