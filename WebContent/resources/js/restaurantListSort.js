@@ -1,11 +1,12 @@
 var restaurantList;
 
 function initOrRefreshCards() {
+    var card_row = $("#card-row");
     $.ajax({
         url: "/restaurant/list",
         success: function (result) {
-            $("#card-row").html("");
-            $("#card-row").append(result);
+            card_row.html("");
+            card_row.append(result);
             sortRestaurantList();
         }
     });
@@ -42,16 +43,16 @@ function sortRestaurantList() {
 }
 
 function highlightVotedRestaurant() {
-    $.post({
+    $.ajax({
         url: "/vote/voted-restaurant",
         success: function (response) {
             document.getElementById("post-content-"+response.id).style.backgroundColor = "#4dbcff";
         }
     });
 }
+
+
 initOrRefreshCards();
-getRestaurantList();
-sortRestaurantList();
 
 
 

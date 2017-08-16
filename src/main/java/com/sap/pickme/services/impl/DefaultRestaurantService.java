@@ -63,5 +63,15 @@ public class DefaultRestaurantService implements RestaurantService {
     public Restaurant getRestaurant(int id) {
         return restaurantDao.getRestaurant(id);
     }
-    
+
+    @Transactional
+    @Override
+    public List<Restaurant> searchForRestaurant(String searchText) {
+        try {
+            return restaurantDao.searchForRestaurant(searchText);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

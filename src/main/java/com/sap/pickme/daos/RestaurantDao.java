@@ -16,4 +16,6 @@ public interface RestaurantDao {
     void deleteRestaurant (int id);
 
     void editRestaurant (Restaurant restaurant);
+
+    List<Restaurant> searchForRestaurant(String searchText) throws Exception;
 }

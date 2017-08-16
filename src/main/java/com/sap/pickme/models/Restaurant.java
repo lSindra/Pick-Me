@@ -1,15 +1,21 @@
 package com.sap.pickme.models;
 
+import org.apache.lucene.analysis.core.LowerCaseFilterFactory;
+import org.apache.lucene.analysis.core.WhitespaceTokenizerFactory;
+import org.apache.lucene.analysis.ngram.EdgeNGramFilterFactory;
+import org.apache.lucene.analysis.snowball.SnowballPorterFilterFactory;
+import org.hibernate.search.annotations.*;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Parameter;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
-import java.util.Set;
-
 
 @Entity
+@Indexed
 @Table(name = "RESTAURANT")
 public class Restaurant {
 
@@ -20,9 +26,11 @@ public class Restaurant {
 
     @NotEmpty(message = "Cannot be empty")
     @Column(name = "NAME")
+    @Field(index = Index.YES, analyze= Analyze.YES, store= Store.NO)
     private String name;
 
     @Column(name = "DESCRIPTION")
+    @Field(index = Index.YES, analyze= Analyze.YES, store= Store.NO)
     private String description;
 
     @NotNull
@@ -33,6 +41,7 @@ public class Restaurant {
     private boolean aleloAccepted;
 
     @Column(name = "LOCATION")
+    @Field(index = Index.YES, analyze= Analyze.YES, store= Store.NO)
     private String location;
 
     @URL

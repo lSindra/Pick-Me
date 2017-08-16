@@ -1,8 +1,15 @@
 package com.sap.pickme.daos.impl;
 
 import com.sap.pickme.daos.RestaurantDao;
+import com.sap.pickme.models.Pool;
 import com.sap.pickme.models.Restaurant;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.search.FullTextSession;
+import org.hibernate.search.Search;
+import org.hibernate.search.jpa.FullTextEntityManager;
+import org.hibernate.search.query.dsl.QueryBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +26,6 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
         this.sessionFactory = sessionFactory;
     }
 
-    @Transactional
     @Override
     public List<Restaurant> listRestaurants() {
         return (List<Restaurant>) getHibernateTemplate()
@@ -37,7 +43,6 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
         getHibernateTemplate().save(restaurant);
     }
 
-    @Transactional
     @Override
     public void deleteRestaurant(int id) {
         Restaurant restaurant = new Restaurant();
@@ -46,9 +51,43 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
         getHibernateTemplate().delete(restaurant);
     }
 
-    @Transactional
     @Override
     public void editRestaurant(Restaurant restaurant) {
         getHibernateTemplate().update(restaurant);
     }
+
+    @Override
+    public List<Restaurant> searchForRestaurant(String searchText) {
+
+        try {
+            FullTextSession fullTextSession = Search.getFullTextSession(getSessionFactory().getCurrentSession());
+            Transaction tx = fullTextSession.getTransaction();
+
+            QueryBuilder qb = fullTextSession.getSearchFactory()
+                    .buildQueryBuilder().forEntity(Restaurant.class)
+                    .overridesForField("name", "customanalyzer_query")
+                    .overridesForField("description", "customanalyzer_query")
+                    .overridesForField("location", "customanalyzer_query")
+                    .get();
+            org.apache.lucene.search.Query query = qb
+                    .keyword()
+                    .onFields("name", "description", "location")
+                    .matching(searchText)
+                    .createQuery();
+
+            org.hibernate.Query hibQuery =
+                    fullTextSession.createFullTextQuery(query, Restaurant.class);
+
+            List<Restaurant> result = (List<Restaurant>) hibQuery.list();
+
+            tx.commit();
+
+            return result;
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

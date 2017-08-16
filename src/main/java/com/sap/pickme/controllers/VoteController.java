@@ -53,7 +53,7 @@ public class VoteController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/voted-restaurant", method = RequestMethod.POST)
+    @RequestMapping(value = "/voted-restaurant")
     public Restaurant getVotedRestaurant(Principal principal) {
         User user = userService.getUserByEmail(principal.getName());
         return voteService.getVotedRestaurant(user);

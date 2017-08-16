@@ -3,7 +3,6 @@ package com.sap.pickme.controllers;
 import com.sap.pickme.models.Restaurant;
 import com.sap.pickme.services.RestaurantService;
 import com.sap.pickme.services.VoteService;
-import javafx.util.Pair;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +18,7 @@ import java.util.List;
 @RequestMapping(value = "/restaurant")
 public class RestaurantController {
 
+
     @Resource
     private RestaurantService restaurantService;
 
@@ -30,6 +30,25 @@ public class RestaurantController {
         model.addAttribute("restaurants", restaurantService.listSortedRestaurant());
         return "restaurant/list";
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/search", method = RequestMethod.POST)
+    public List<Restaurant> search(String searchText) {
+        List<Restaurant> searchResults = null;
+        try {
+            searchResults = restaurantService.searchForRestaurant(searchText);
+        }
+        catch (Exception ex) {
+            // throw ex;
+        }
+        return searchResults;
+    }
+
+
+    //
+    //List
+    //
+
 
     @RequestMapping(value = "/list")
     public String getRestaurantsSortedList(Model model) {
@@ -43,6 +62,12 @@ public class RestaurantController {
         return restaurantService.listSortedRestaurant();
     }
 
+
+    //
+    //CRUD
+    //
+
+
     @ResponseBody
     @RequestMapping(value = "/get")
     public Restaurant getRestaurant(int id) {
@@ -54,7 +79,6 @@ public class RestaurantController {
     public int getRestaurantVoteCount(Restaurant restaurant) {
         return voteService.countNumberOfVotes(restaurant);
     }
-
 
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String createRestaurant( @Valid Restaurant restaurant, BindingResult bindingResult,

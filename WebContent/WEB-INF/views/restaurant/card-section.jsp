@@ -7,7 +7,7 @@
 <div class="row">
     <a class="nav-link" href="#" data-toggle="modal" data-target="#restaurantAddModal">New Restaurant</a>
     <a class="nav-link" role="button" onClick="initOrRefreshCards()">Sort</a>
-    <input type="text" id="id_search_list" class="form-control input-sm" placeholder="Search box">
+    <input type="text" id="id_search_list" oninput="search()" class="form-control input-sm" placeholder="Search box">
 </div>
 
 <%--Restaurant Card Row--%>
@@ -22,4 +22,4 @@
 </div>
 
 <script src="../../../resources/js/card.js"></script>
-
+<script src="../../../resources/js/search.js"></script>

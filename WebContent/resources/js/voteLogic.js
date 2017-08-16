@@ -7,7 +7,6 @@ function vote(restaurant_id) {
         data: {restaurant_id: restaurant_id},
         success : function() {
             sortRestaurantList();
-            initOrRefreshCards()
         }
     });
 }
