@@ -22,6 +22,7 @@
     }
 
     function getRestaurant(id) {
+    debugger;
         $.ajax({
             url : '/restaurant/get',
             data: { id: id},

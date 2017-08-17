@@ -7,7 +7,7 @@
 <div class="col-md-4" id="card">
     <div class="column">
         <!-- Post-->
-        <div class="post-module">
+        <div class="post-module" role="button">
             <!-- Thumbnail-->
             <div class="thumbnail">
                 <a tabindex="0" class="date" role="button" data-toggle="popover" data-trigger="body"

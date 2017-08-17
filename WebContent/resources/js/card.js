@@ -7,14 +7,20 @@ $(function(){
     });
 
     $('.post-module').click(function() {
+        debugger;
         var id = $(this).find('#restaurantId').val();
         vote(id);
     });
 
-    $('[data-toggle="popover"]').popover({
-        delay: 100,
+    $('[data-toggle="popover"]')
+        .on('click',function(){
+            event.stopPropagation();
+        })
+        .popover({
+        delay: 20,
         container: 'body',
         animation: true,
         html: true
     });
+
 });
