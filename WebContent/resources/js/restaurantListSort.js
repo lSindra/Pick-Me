@@ -2,7 +2,7 @@ var restaurantList;
 
 function initOrRefreshCards() {
     var card_row = $("#card-row");
-    var searchText = $("#id_search_list").val();
+    var searchText = $("#id_search_list").val().trim();
     $.ajax({
         url: "/restaurant/list",
         data: {searchText: searchText},
@@ -15,7 +15,7 @@ function initOrRefreshCards() {
 }
 
 function search() {
-    var searchText = $("#id_search_list").val();
+    var searchText = $("#id_search_list").val().trim();
     $.ajax({
         url: "/restaurant/search",
         data: {searchText: searchText},

@@ -59,12 +59,10 @@
 <section id="about" class="container content-section text-center">
 
     <%--Buttons--%>
-    <div class="row" style="margin-bottom: 10px">
+    <div class="row" >
         <div class="<col>">
-            <a class="btn-default" href="#" data-toggle="modal" data-target="#restaurantAddModal">New Restaurant</a>
-        </div>
-        <div class="col">
-            <a class="btn-default" role="button" onClick="initOrRefreshCards()">Sort</a>
+            <a class="btn-success btn" href="#" data-toggle="modal" data-target="#restaurantAddModal">New Restaurant</a>
+            <a class="btn-default btn" role="button" onClick="initOrRefreshCards()">Sort</a>
         </div>
         <div class="col-md-6 ml-auto" style="margin-bottom: 10px">
             <input type="text" id="id_search_list" oninput="initOrRefreshCards()" class="form-control input-sm" placeholder="Search box">

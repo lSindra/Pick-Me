@@ -22,7 +22,6 @@
     }
 
     function getRestaurant(id) {
-    debugger;
         $.ajax({
             url : '/restaurant/get',
             data: { id: id},
@@ -37,6 +36,16 @@
                 if(oElements.aleloAccepted.val() === "true") {
                     oElements.aleloAccepted.prop("checked", true);
                 } else oElements.aleloAccepted.prop("checked", false);
+            }
+        });
+    }
+    
+    function listVoters(id) {
+        $.ajax({
+            url : '/restaurant/voters',
+            data: { id: id},
+            dataType: 'json',
+            success : function(response) {
             }
         });
     }

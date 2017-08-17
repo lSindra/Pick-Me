@@ -7,7 +7,6 @@ $(function(){
     });
 
     $('.post-module').click(function() {
-        debugger;
         var id = $(this).find('#restaurantId').val();
         vote(id);
     });
