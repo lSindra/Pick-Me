@@ -19,10 +19,7 @@
     <elem:header>
     <jsp:attribute name="navButtons">
     <li class="nav-item">
-        <a class="nav-link" href="#about">Restaurants</a>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="#download">Most Voted</a>
+        <a class="nav-link" href="/restaurant/">Restaurants</a>
     </li>
     <li class="nav-item">
         <a class="text-center" href="/logout">Logout</a>

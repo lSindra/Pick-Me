@@ -23,7 +23,7 @@
                 <a class="nav-link" href="#about">Restaurants</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#download">Most Voted</a>
+                <a class="nav-link" href="#restaurants">Vote History</a>
             </li>
             <li class="nav-item">
                 <a class="text-center" href="/logout">Logout</a>
@@ -66,13 +66,13 @@
 </section>
 
 <!-- Download Section -->
-<section id="download" class="content-section text-center">
-    <div class="download-section">
+<section id="restaurants" class="content-section text-center">
+    <div class="restaurant-section">
         <div class="container">
             <div class="col-lg-8 offset-md-2">
-                <h2>Most Voted</h2>
-                <p>This is the most voted restaurant.</p>
-                <a href="#" class="btn btn-default btn-lg">Place Holder</a>
+                <h2>Vote History</h2>
+                <p>Check out all votes, ever.</p>
+                <a href="/vote/history" class="btn btn-default btn-lg">Vote History</a>
             </div>
         </div>
     </div>
@@ -110,9 +110,6 @@
 
 <!-- Plugin JavaScript -->
 <script src="../../../resources/vendor/jquery-easing/jquery.easing.min.js"></script>
-
-<!-- Google Maps API -->
-<%--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCqAZ-i7xPeqanrDkGPNvaTAi9Lnvv2C2g&sensor=false"></script>--%>
 
 <!-- Custom scripts for this template -->
 <script src="../../../resources/js/grayscale.js"></script>
