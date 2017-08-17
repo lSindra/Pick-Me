@@ -17,6 +17,17 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Indexed
 @Table(name = "RESTAURANT")
+@AnalyzerDef(name = "customanalyzer", tokenizer = @TokenizerDef(factory = WhitespaceTokenizerFactory.class), filters = {
+        @TokenFilterDef(factory = LowerCaseFilterFactory.class),
+        @TokenFilterDef(factory = SnowballPorterFilterFactory.class, params = { @Parameter(name = "language", value = "English") }),
+        @TokenFilterDef(factory = EdgeNGramFilterFactory.class, params = { @Parameter(name = "maxGramSize", value = "15") })
+
+})
+@AnalyzerDef(name = "customanalyzer_query", tokenizer = @TokenizerDef(factory = WhitespaceTokenizerFactory.class), filters = {
+        @TokenFilterDef(factory = LowerCaseFilterFactory.class),
+        @TokenFilterDef(factory = SnowballPorterFilterFactory.class, params = { @Parameter(name = "language", value = "English") })
+
+})
 public class Restaurant {
 
     @Id
@@ -26,11 +37,11 @@ public class Restaurant {
 
     @NotEmpty(message = "Cannot be empty")
     @Column(name = "NAME")
-    @Field(index = Index.YES, analyze= Analyze.YES, store= Store.NO)
+    @Field(index=Index.YES, analyze=Analyze.YES, analyzer = @Analyzer(definition = "customanalyzer"), store=Store.NO)
     private String name;
 
     @Column(name = "DESCRIPTION")
-    @Field(index = Index.YES, analyze= Analyze.YES, store= Store.NO)
+    @Field(index=Index.YES, analyze=Analyze.YES, analyzer = @Analyzer(definition = "customanalyzer"), store=Store.NO)
     private String description;
 
     @NotNull
@@ -41,7 +52,7 @@ public class Restaurant {
     private boolean aleloAccepted;
 
     @Column(name = "LOCATION")
-    @Field(index = Index.YES, analyze= Analyze.YES, store= Store.NO)
+    @Field(index=Index.YES, analyze=Analyze.YES, analyzer = @Analyzer(definition = "customanalyzer"), store=Store.NO)
     private String location;
 
     @URL

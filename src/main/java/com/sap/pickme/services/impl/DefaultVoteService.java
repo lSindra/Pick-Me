@@ -51,4 +51,9 @@ public class DefaultVoteService implements VoteService {
     public Restaurant getVotedRestaurant(User user) {
         return voteDao.getRestaurantByUserAndPool(user, poolService.getActivePool());
     }
+
+    @Override
+    public List<Vote> voteHistory() {
+        return voteDao.voteHistory();
+    }
 }

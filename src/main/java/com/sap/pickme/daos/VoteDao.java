@@ -23,4 +23,6 @@ public interface VoteDao {
     void vote(Vote vote);
 
     void delete(List<Vote> votes);
+
+    List<Vote> voteHistory();
 }

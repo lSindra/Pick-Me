@@ -56,6 +56,7 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
         getHibernateTemplate().update(restaurant);
     }
 
+
     @Override
     public List<Restaurant> searchForRestaurant(String searchText) {
 
@@ -78,15 +79,12 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
             org.hibernate.Query hibQuery =
                     fullTextSession.createFullTextQuery(query, Restaurant.class);
 
-            List<Restaurant> result = (List<Restaurant>) hibQuery.list();
-
             tx.commit();
-
-            return result;
-
+            return (List<Restaurant>) hibQuery.list();
         }catch (Exception e){
             e.printStackTrace();
         }
+
         return null;
     }
 

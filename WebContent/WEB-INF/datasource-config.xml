@@ -34,7 +34,7 @@
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
                 <prop key="hibernate.flushMode">AUTO</prop>
                 <prop key="hibernate.search.default.directory_provider">filesystem</prop>
-                <prop key="hibernate.search.default.indexBase">/var/lucene/indexes</prop>
+                <prop key="hibernate.search.default.indexBase">C:\Users\I863222\Downloads\SAP SPRING\Select Restaurant\lucene\indexes</prop>
             </props>
         </property>
 

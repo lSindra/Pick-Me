@@ -5,6 +5,7 @@ import com.sap.pickme.models.User;
 import com.sap.pickme.models.Vote;
 
 import java.util.Date;
+import java.util.List;
 
 public interface VoteService {
 
@@ -15,4 +16,6 @@ public interface VoteService {
     void vote(Vote vote);
 
     Restaurant getVotedRestaurant(User user);
+
+    List<Vote> voteHistory();
 }

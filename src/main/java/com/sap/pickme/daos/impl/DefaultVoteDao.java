@@ -104,4 +104,9 @@ public class DefaultVoteDao extends HibernateDaoSupport implements VoteDao {
         }
     }
 
+    @Override
+    public List<Vote> voteHistory() {
+        return getHibernateTemplate().loadAll(Vote.class);
+    }
+
 }
