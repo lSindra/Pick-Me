@@ -19,13 +19,13 @@
             </div>
             <!-- Post Content-->
             <div class="post-content" id="post-content-${restaurant.id}">
+                <input type="hidden" name="restaurantId" id="restaurantId" value="${restaurant.id}"/>
                 <div class="category">Pizza</div>
                 <h1 class="title">${restaurant.name}</h1>
                 <h2 class="sub_title">R$: ${restaurant.price} <c:if test="${restaurant.aleloAccepted}"><img src="/resources/img/aleloIcon.png" class="img-responsive " height="25px" alt=""></c:if></h2>
                 <p class="description">${restaurant.description} <br> ${restaurant.location}</p>
                 <div class="post-meta">
                     <span class="comments" id="voteCount-${restaurant.id}"></span>
-                    <a class="btn btn-default btn-sm" role="button" onclick="vote(${restaurant.id})">Vote</a>
                 </div>
             </div>
         </div>
