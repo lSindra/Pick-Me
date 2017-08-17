@@ -1,5 +1,6 @@
 package com.sap.pickme.services.impl;
 
+import com.sap.pickme.daos.RestaurantDao;
 import com.sap.pickme.daos.VoteDao;
 import com.sap.pickme.models.Restaurant;
 import com.sap.pickme.models.User;
@@ -9,6 +10,7 @@ import com.sap.pickme.services.VoteService;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -16,6 +18,9 @@ public class DefaultVoteService implements VoteService {
 
     @Resource
     private VoteDao voteDao;
+
+    @Resource
+    private RestaurantDao restaurantDao;
 
     @Resource
     private PoolService poolService;
@@ -32,6 +37,17 @@ public class DefaultVoteService implements VoteService {
         List<Vote> votes = voteDao.getVoteByRestaurantAndPool(restaurant, poolService.getActivePool());
         if(votes == null) return 0;
         return votes.size();
+    }
+
+    @Transactional
+    @Override
+    public List<User> getUserListByRestaurantVote(int restaurantId) {
+        List<User> userList = new ArrayList<>();
+        List<Vote> votes = voteDao.getVoteByRestaurantAndPool(restaurantDao.getRestaurant(restaurantId), poolService.getActivePool());
+        for (Vote vote:votes) {
+            userList.add(vote.getUser());
+        }
+        return userList;
     }
 
     @Transactional

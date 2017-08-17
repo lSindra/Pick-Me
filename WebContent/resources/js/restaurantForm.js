@@ -24,7 +24,7 @@
     function getRestaurant(id) {
         $.ajax({
             url : '/restaurant/get',
-            data: { id: id},
+            data: { id: id },
             dataType: 'json',
             success : function(response) {
                 var oElements = getFieldsFromRestaurantBeingEdited();
@@ -40,12 +40,14 @@
         });
     }
     
-    function listVoters(id) {
+    function listVoters(restaurantId) {
         $.ajax({
             url : '/restaurant/voters',
-            data: { id: id},
+            data: {restaurantId: restaurantId},
             dataType: 'json',
+            type: 'POST',
             success : function(response) {
+                alert("123");
             }
         });
     }

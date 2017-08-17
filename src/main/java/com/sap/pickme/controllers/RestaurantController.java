@@ -1,6 +1,7 @@
 package com.sap.pickme.controllers;
 
 import com.sap.pickme.models.Restaurant;
+import com.sap.pickme.models.User;
 import com.sap.pickme.services.RestaurantService;
 import com.sap.pickme.services.VoteService;
 import org.springframework.stereotype.Controller;
@@ -50,9 +51,15 @@ public class RestaurantController {
     public String getRestaurantsSortedList(String searchText, Model model) {
         List<Restaurant> restaurantList = search(searchText);
         model.addAttribute("restaurants", restaurantList);
-
         return "restaurant/card-section";
     }
+
+    @ResponseBody
+    @RequestMapping(value = "/voters", method = RequestMethod.POST)
+    public List<User> voters(int restaurantId) {
+        return voteService.getUserListByRestaurantVote(restaurantId);
+    }
+
 
     @ResponseBody
     @RequestMapping(value = "/get")

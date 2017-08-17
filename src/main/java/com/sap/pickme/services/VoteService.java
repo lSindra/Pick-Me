@@ -13,6 +13,8 @@ public interface VoteService {
 
     int countNumberOfVotes(Restaurant restaurant);
 
+    List<User> getUserListByRestaurantVote(int restaurantId);
+
     void vote(Vote vote);
 
     Restaurant getVotedRestaurant(User user);
