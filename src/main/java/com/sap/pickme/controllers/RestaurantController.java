@@ -26,47 +26,33 @@ public class RestaurantController {
     private VoteService voteService;
 
     @RequestMapping(value = "/")
-    public String start(Model model){
-        model.addAttribute("restaurants", restaurantService.listSortedRestaurant());
+    public String start(){
         return "restaurant/list";
     }
 
     @ResponseBody
-    @RequestMapping(value = "/search", method = RequestMethod.POST)
-    public List<Restaurant> search(String searchText) {
-        List<Restaurant> searchResults = null;
-        try {
-            searchResults = restaurantService.searchForRestaurant(searchText);
-        }
-        catch (Exception ex) {
-            // throw ex;
-        }
-        return searchResults;
+    @RequestMapping(value = "/search")
+    public List<Restaurant> listRestaurants(String searchText) {
+        return search(searchText);
     }
 
-
-    //
-    //List
-    //
-
+    public List<Restaurant> search(String searchText) {
+        try {
+            if(searchText == null) searchText = "";
+            return restaurantService.searchForRestaurant(searchText);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     @RequestMapping(value = "/list")
-    public String getRestaurantsSortedList(Model model) {
-        model.addAttribute("restaurants", restaurantService.listSortedRestaurant());
+    public String getRestaurantsSortedList(String searchText, Model model) {
+        List<Restaurant> restaurantList = search(searchText);
+        model.addAttribute("restaurants", restaurantList);
+
         return "restaurant/card-section";
     }
-
-    @ResponseBody
-    @RequestMapping(value = "/list-sorted-restaurants")
-    public List<Restaurant> getRestaurantsSortedList() {
-        return restaurantService.listSortedRestaurant();
-    }
-
-
-    //
-    //CRUD
-    //
-
 
     @ResponseBody
     @RequestMapping(value = "/get")
@@ -92,8 +78,7 @@ public class RestaurantController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editRestaurant(@Valid Restaurant restaurant, BindingResult bindingResult,
-                               Model model, RedirectAttributes redirectAttributes, HttpServletRequest req) {
+    public String editRestaurant(@Valid Restaurant restaurant, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
             return "redirect:/restaurant/";

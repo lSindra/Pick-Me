@@ -2,8 +2,10 @@ var restaurantList;
 
 function initOrRefreshCards() {
     var card_row = $("#card-row");
+    var searchText = $("#id_search_list").val();
     $.ajax({
         url: "/restaurant/list",
+        data: {searchText: searchText},
         success: function (result) {
             card_row.html("");
             card_row.append(result);
@@ -11,6 +13,18 @@ function initOrRefreshCards() {
         }
     });
 }
+
+function search() {
+    var searchText = $("#id_search_list").val();
+    $.ajax({
+        url: "/restaurant/search",
+        data: {searchText: searchText},
+        success: function (result) {
+            restaurantList = result;
+        }
+    });
+}
+
 
 function getAndDisplayRestaurantVotes(restaurant) {
     $.ajax({
@@ -25,17 +39,8 @@ function getAndDisplayRestaurantVotes(restaurant) {
 }
 
 
-function getRestaurantList() {
-    $.ajax({
-        url: "/restaurant/list-sorted-restaurants",
-        success: function (result) {
-            restaurantList = result;
-        }
-    });
-}
-
 function sortRestaurantList() {
-    getRestaurantList();
+    search();
     for (var i in restaurantList) {
         getAndDisplayRestaurantVotes(restaurantList[i])
     }
@@ -53,19 +58,4 @@ function highlightVotedRestaurant() {
 
 
 initOrRefreshCards();
-
-
-
-// var qs = $('input#id_search_list').quicksearch('ul#list_example li');
-//
-// $.ajax({
-//     'url': 'example.json',
-//     'type': 'GET',
-//     'dataType': 'json',
-//     'success': function (data) {
-//         for (let i in data['list_items']) {
-//             $('ul#list_example').append('<li>' + data['list_items'][i] + '</li>');
-//         }
-//         qs.cache();
-//     }
-// });
+highlightVotedRestaurant();

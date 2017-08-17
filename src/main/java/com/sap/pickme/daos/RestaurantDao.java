@@ -6,9 +6,6 @@ import java.util.List;
 
 public interface RestaurantDao {
 
-
-    List<Restaurant> listRestaurants();
-
     Restaurant getRestaurant (int id);
 
     void addRestaurant (Restaurant restaurant);

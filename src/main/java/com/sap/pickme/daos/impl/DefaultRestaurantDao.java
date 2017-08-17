@@ -27,12 +27,6 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
     }
 
     @Override
-    public List<Restaurant> listRestaurants() {
-        return (List<Restaurant>) getHibernateTemplate()
-                .find("from com.sap.pickme.models.Restaurant");
-    }
-
-    @Override
     public Restaurant getRestaurant(int id) {
         return getHibernateTemplate().get(Restaurant.class, id);
     }
@@ -62,7 +56,6 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
 
         try {
             FullTextSession fullTextSession = Search.getFullTextSession(getSessionFactory().getCurrentSession());
-            Transaction tx = fullTextSession.getTransaction();
 
             QueryBuilder qb = fullTextSession.getSearchFactory()
                     .buildQueryBuilder().forEntity(Restaurant.class)
@@ -72,14 +65,14 @@ public class DefaultRestaurantDao extends HibernateDaoSupport implements Restaur
                     .get();
             org.apache.lucene.search.Query query = qb
                     .keyword()
+                    .wildcard()
                     .onFields("name", "description", "location")
-                    .matching(searchText)
+                    .matching(searchText + "*")
                     .createQuery();
 
             org.hibernate.Query hibQuery =
                     fullTextSession.createFullTextQuery(query, Restaurant.class);
 
-            tx.commit();
             return (List<Restaurant>) hibQuery.list();
         }catch (Exception e){
             e.printStackTrace();

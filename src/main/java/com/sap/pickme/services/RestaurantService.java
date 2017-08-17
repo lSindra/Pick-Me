@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface RestaurantService {
 
-    List<Restaurant> listSortedRestaurant();
-
     void addRestaurant (Restaurant restaurant);
 
     void deleteRestaurant (int id);
@@ -17,6 +15,5 @@ public interface RestaurantService {
 
     Restaurant getRestaurant(int id);
 
-    @Transactional
     List<Restaurant> searchForRestaurant(String searchText) throws Exception;
 }
