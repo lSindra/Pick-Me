@@ -11,7 +11,7 @@
             <!-- Thumbnail-->
             <div class="thumbnail">
                 <a tabindex="0" class="date" role="button" data-toggle="popover" data-trigger="body"
-                   data-content="<a role='button' onclick='listVoters(${restaurant.id})' class='btn btn-secondary'>Voters</a> <br>
+                   data-content="<a data-toggle='modal' data-target='.bd-example-modal-sm' role='button' onclick='listVoters(${restaurant.id})' class='btn btn-secondary'>Voters</a> <br>
                                  <a href='#' data-toggle='modal' data-target='#restaurantEditModal' onclick='getRestaurant(${restaurant.id})' class='btn btn-secondary btn-lg'>Edit</a> <br>
                                  <a href='/restaurant/delete?id=${restaurant.id}' class='btn btn-danger'>Delete</a>">
                     <div class="day"><i class="fa fa-bars" aria-hidden="true"></i></div>

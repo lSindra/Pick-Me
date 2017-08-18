@@ -39,15 +39,19 @@
             }
         });
     }
-    
+
     function listVoters(restaurantId) {
+    var voterlistContent = $("#voter-list");
+        voterlistContent.html("");
         $.ajax({
             url : '/restaurant/voters',
             data: {restaurantId: restaurantId},
             dataType: 'json',
             type: 'POST',
-            success : function(response) {
-                alert("123");
+            success : function(userList) {
+                for(var i=0; i<userList.length; i++) {
+                    voterlistContent.append("<h5>"+userList[i].name+"</h5>");
+                }
             }
         });
     }

@@ -14,4 +14,17 @@
 
 </div>
 
+<%-- Modal --%>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" style="min-height: 40%">
+            <h1 style="margin-bottom: 10%; margin-top: 10%">Voters List</h1>
+            <div id="voter-list">
+
+            </div>
+        </div>
+    </div>
+</div>
+
 <script src="../../../resources/js/card.js"></script>
