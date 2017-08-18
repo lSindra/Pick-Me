@@ -24,7 +24,7 @@
     function getRestaurant(id) {
         $.ajax({
             url : '/restaurant/get',
-            data: { id: id},
+            data: { id: id },
             dataType: 'json',
             success : function(response) {
                 var oElements = getFieldsFromRestaurantBeingEdited();
@@ -36,6 +36,22 @@
                 if(oElements.aleloAccepted.val() === "true") {
                     oElements.aleloAccepted.prop("checked", true);
                 } else oElements.aleloAccepted.prop("checked", false);
+            }
+        });
+    }
+
+    function listVoters(restaurantId) {
+    var voterlistContent = $("#voter-list");
+        voterlistContent.html("");
+        $.ajax({
+            url : '/restaurant/voters',
+            data: {restaurantId: restaurantId},
+            dataType: 'json',
+            type: 'POST',
+            success : function(userList) {
+                for(var i=0; i<userList.length; i++) {
+                    voterlistContent.append("<h5>"+userList[i].name+"</h5>");
+                }
             }
         });
     }

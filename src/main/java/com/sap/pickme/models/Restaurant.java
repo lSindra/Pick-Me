@@ -1,16 +1,33 @@
 package com.sap.pickme.models;
 
+import org.apache.lucene.analysis.core.LowerCaseFilterFactory;
+import org.apache.lucene.analysis.core.WhitespaceTokenizerFactory;
+import org.apache.lucene.analysis.ngram.EdgeNGramFilterFactory;
+import org.apache.lucene.analysis.snowball.SnowballPorterFilterFactory;
+import org.hibernate.search.annotations.*;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Parameter;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.hibernate.validator.constraints.URL;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
-import java.util.Set;
-
 
 @Entity
+@Indexed
 @Table(name = "RESTAURANT")
+@AnalyzerDef(name = "customanalyzer", tokenizer = @TokenizerDef(factory = WhitespaceTokenizerFactory.class), filters = {
+        @TokenFilterDef(factory = LowerCaseFilterFactory.class),
+        @TokenFilterDef(factory = SnowballPorterFilterFactory.class, params = { @Parameter(name = "language", value = "English") }),
+        @TokenFilterDef(factory = EdgeNGramFilterFactory.class, params = { @Parameter(name = "maxGramSize", value = "15") })
+
+})
+@AnalyzerDef(name = "customanalyzer_query", tokenizer = @TokenizerDef(factory = WhitespaceTokenizerFactory.class), filters = {
+        @TokenFilterDef(factory = LowerCaseFilterFactory.class),
+        @TokenFilterDef(factory = SnowballPorterFilterFactory.class, params = { @Parameter(name = "language", value = "English") })
+
+})
 public class Restaurant {
 
     @Id
@@ -20,9 +37,11 @@ public class Restaurant {
 
     @NotEmpty(message = "Cannot be empty")
     @Column(name = "NAME")
+    @Field(index=Index.YES, analyze=Analyze.YES, analyzer = @Analyzer(definition = "customanalyzer"), store=Store.NO)
     private String name;
 
     @Column(name = "DESCRIPTION")
+    @Field(index=Index.YES, analyze=Analyze.YES, analyzer = @Analyzer(definition = "customanalyzer"), store=Store.NO)
     private String description;
 
     @NotNull
@@ -33,6 +52,7 @@ public class Restaurant {
     private boolean aleloAccepted;
 
     @Column(name = "LOCATION")
+    @Field(index=Index.YES, analyze=Analyze.YES, analyzer = @Analyzer(definition = "customanalyzer"), store=Store.NO)
     private String location;
 
     @URL
@@ -42,6 +62,7 @@ public class Restaurant {
     @Transient
     private int votes;
 
+    //TODO
 
     public int getId() {
         return id;

@@ -22,23 +22,6 @@ public class DefaultRestaurantService implements RestaurantService {
     @Resource
     private VoteDao voteDao;
 
-    @Override
-    public List<Restaurant> listSortedRestaurant() {
-        return getRestaurantVotedList(restaurantDao.listRestaurants());
-    }
-
-    private List<Restaurant> getRestaurantVotedList(List<Restaurant> restaurantList) {
-        for (Restaurant restaurant: restaurantList) {
-            restaurant.setVotes(voteService.countNumberOfVotes(restaurant));
-        }
-        return sortRestaurantList(restaurantList);
-    }
-
-    private List<Restaurant> sortRestaurantList(List<Restaurant> unsortedList) {
-        unsortedList.sort(Comparator.comparing(Restaurant::getVotes, Comparator.reverseOrder()).thenComparing(Restaurant::getName));
-        return unsortedList;
-    }
-
     @Transactional
     @Override
     public void addRestaurant(Restaurant restaurant) {
@@ -63,5 +46,27 @@ public class DefaultRestaurantService implements RestaurantService {
     public Restaurant getRestaurant(int id) {
         return restaurantDao.getRestaurant(id);
     }
-    
+
+    @Transactional
+    @Override
+    public List<Restaurant> searchForRestaurant(String searchText) {
+        try {
+            return getRestaurantVotedList(restaurantDao.searchForRestaurant(searchText));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    private List<Restaurant> getRestaurantVotedList(List<Restaurant> restaurantList) {
+        for (Restaurant restaurant: restaurantList) {
+            restaurant.setVotes(voteService.countNumberOfVotes(restaurant));
+        }
+        return sortRestaurantList(restaurantList);
+    }
+
+    private List<Restaurant> sortRestaurantList(List<Restaurant> unsortedList) {
+        unsortedList.sort(Comparator.comparing(Restaurant::getVotes, Comparator.reverseOrder()).thenComparing(Restaurant::getName));
+        return unsortedList;
+    }
 }

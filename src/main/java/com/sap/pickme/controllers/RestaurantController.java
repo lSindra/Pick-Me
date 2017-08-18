@@ -1,9 +1,9 @@
 package com.sap.pickme.controllers;
 
 import com.sap.pickme.models.Restaurant;
+import com.sap.pickme.models.User;
 import com.sap.pickme.services.RestaurantService;
 import com.sap.pickme.services.VoteService;
-import javafx.util.Pair;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +19,7 @@ import java.util.List;
 @RequestMapping(value = "/restaurant")
 public class RestaurantController {
 
+
     @Resource
     private RestaurantService restaurantService;
 
@@ -26,16 +27,39 @@ public class RestaurantController {
     private VoteService voteService;
 
     @RequestMapping(value = "/")
-    public String start(Model model){
-        model.addAttribute("restaurants", getRestaurantsSortedList());
+    public String start(){
         return "restaurant/list";
     }
 
     @ResponseBody
-    @RequestMapping(value = "/list")
-    public List<Restaurant> getRestaurantsSortedList() {
-        return restaurantService.listSortedRestaurant();
+    @RequestMapping(value = "/search")
+    public List<Restaurant> listRestaurants(String searchText) {
+        return search(searchText);
     }
+
+    public List<Restaurant> search(String searchText) {
+        try {
+            if(searchText == null) searchText = "";
+            return restaurantService.searchForRestaurant(searchText);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    @RequestMapping(value = "/list")
+    public String getRestaurantsSortedList(String searchText, Model model) {
+        List<Restaurant> restaurantList = search(searchText);
+        model.addAttribute("restaurants", restaurantList);
+        return "restaurant/card-section";
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/voters", method = RequestMethod.POST)
+    public List<User> voters(int restaurantId) {
+        return voteService.getUserListByRestaurantVote(restaurantId);
+    }
+
 
     @ResponseBody
     @RequestMapping(value = "/get")
@@ -49,7 +73,6 @@ public class RestaurantController {
         return voteService.countNumberOfVotes(restaurant);
     }
 
-
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public String createRestaurant( @Valid Restaurant restaurant, BindingResult bindingResult,
                                    RedirectAttributes redirectAttributes) {
@@ -62,8 +85,7 @@ public class RestaurantController {
     }
 
     @RequestMapping(value = "/edit", method = RequestMethod.POST)
-    public String editRestaurant(@Valid Restaurant restaurant, BindingResult bindingResult,
-                               Model model, RedirectAttributes redirectAttributes, HttpServletRequest req) {
+    public String editRestaurant(@Valid Restaurant restaurant, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
         if (bindingResult.hasErrors()) {
             return "redirect:/restaurant/";

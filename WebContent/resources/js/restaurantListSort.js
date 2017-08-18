@@ -1,3 +1,30 @@
+var restaurantList;
+
+function initOrRefreshCards() {
+    var card_row = $("#card-row");
+    var searchText = $("#id_search_list").val().trim();
+    $.ajax({
+        url: "/restaurant/list",
+        data: {searchText: searchText},
+        success: function (result) {
+            card_row.html("");
+            card_row.append(result);
+            sortRestaurantList();
+        }
+    });
+}
+
+function search() {
+    var searchText = $("#id_search_list").val().trim();
+    $.ajax({
+        url: "/restaurant/search",
+        data: {searchText: searchText},
+        success: function (result) {
+            restaurantList = result;
+        }
+    });
+}
+
 
 function getAndDisplayRestaurantVotes(restaurant) {
     $.ajax({
@@ -7,24 +34,21 @@ function getAndDisplayRestaurantVotes(restaurant) {
         success : function(votes) {
             document.getElementById("voteCount-"+restaurant.id).innerHTML = votes;
             document.getElementById("post-content-"+restaurant.id).style.backgroundColor = "#fcfcfc";
-            highlightVotedRestaurant();
         }
     });
 }
 
+
 function sortRestaurantList() {
-    $.ajax({
-        url: "/restaurant/list",
-        success: function (response) {
-            for (var i in response) {
-                getAndDisplayRestaurantVotes(response[i])
-            }
-        }
-    });
+    search();
+    for (var i in restaurantList) {
+        getAndDisplayRestaurantVotes(restaurantList[i])
+    }
+    highlightVotedRestaurant();
 }
 
 function highlightVotedRestaurant() {
-    $.post({
+    $.ajax({
         url: "/vote/voted-restaurant",
         success: function (response) {
             document.getElementById("post-content-"+response.id).style.backgroundColor = "#4dbcff";
@@ -33,5 +57,5 @@ function highlightVotedRestaurant() {
 }
 
 
-window.onload = sortRestaurantList(); highlightVotedRestaurant();
-
+initOrRefreshCards();
+highlightVotedRestaurant();

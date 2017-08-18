@@ -136,7 +136,7 @@ a {
 .content-section {
   padding-top: 100px; }
 
-.download-section {
+.restaurant-section {
   width: 100%;
   padding: 50px 0;
   color: white;
@@ -155,7 +155,7 @@ a {
 @media (min-width: 767px) {
   .content-section {
     padding-top: 250px; }
-  .download-section {
+  .restaurant-section {
     padding: 100px 0; }
   #map {
     height: 350px;

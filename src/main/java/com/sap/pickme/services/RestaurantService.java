@@ -1,12 +1,11 @@
 package com.sap.pickme.services;
 
 import com.sap.pickme.models.Restaurant;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 public interface RestaurantService {
-
-    List<Restaurant> listSortedRestaurant();
 
     void addRestaurant (Restaurant restaurant);
 
@@ -15,4 +14,6 @@ public interface RestaurantService {
     void editTraining (Restaurant restaurant);
 
     Restaurant getRestaurant(int id);
+
+    List<Restaurant> searchForRestaurant(String searchText) throws Exception;
 }

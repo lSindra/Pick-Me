@@ -1,6 +1,7 @@
 package com.sap.pickme.models;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "VOTE")
@@ -9,6 +10,9 @@ public class Vote {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID", unique = true)
     private int id;
+
+    @Column(name = "DATE")
+    private Date date;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name="USER_ID", nullable=false)
@@ -55,5 +59,11 @@ public class Vote {
         this.pool = pool;
     }
 
+    public Date getDate() {
+        return date;
+    }
 
+    public void setDate(Date date) {
+        this.date = date;
+    }
 }
